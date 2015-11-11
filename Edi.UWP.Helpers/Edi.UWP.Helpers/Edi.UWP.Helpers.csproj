@@ -113,7 +113,12 @@
   <ItemGroup>
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\ColorConverters.cs" />
+    <Compile Include="Converters\ColorHexStringToColorConverter.cs" />
+    <Compile Include="Converters\ColorHexStringToBrushConverter.cs" />
+    <Compile Include="Converters\ColorToCMYKStringConverter.cs" />
+    <Compile Include="Converters\ColorToHexStringConverter.cs" />
+    <Compile Include="Converters\ColorToRgbStringConverter.cs" />
+    <Compile Include="Converters\ColorToSolidColorBrushValueConverter.cs" />
     <Compile Include="Converters\DateTimeToOffsetConverter.cs" />
     <Compile Include="Converters\StringFormatConverters.cs" />
     <Compile Include="DBCSEncoding.cs" />
