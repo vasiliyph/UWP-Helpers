@@ -19,16 +19,16 @@ namespace Edi.UWP.Helpers
             Clipboard.SetContent(dp);
         }
 
-        public string GetAppVersion()
+        public static string GetAppVersion()
         {
             var ver = Windows.ApplicationModel.Package.Current.Id.Version;
             return $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}";
         }
 
-        public Uri GetAppLogoUri() => Windows.ApplicationModel.Package.Current.Logo;
+        public static Uri GetAppLogoUri() => Windows.ApplicationModel.Package.Current.Logo;
 
-        public string GetAppDisplayName() => Windows.ApplicationModel.Package.Current.DisplayName;
+        public static string GetAppDisplayName() => Windows.ApplicationModel.Package.Current.DisplayName;
 
-        public string GetAppPublisher() => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
+        public static string GetAppPublisher() => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
     }
 }
