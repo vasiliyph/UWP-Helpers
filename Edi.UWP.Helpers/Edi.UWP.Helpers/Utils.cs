@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
@@ -13,6 +12,10 @@ namespace Edi.UWP.Helpers
 {
     public class Utils
     {
+        /// <summary>
+        /// Copy a string to Windows Clipboard
+        /// </summary>
+        /// <param name="str"></param>
         public static void CopyToClipBoard(string str)
         {
             var dp = new DataPackage
@@ -23,6 +26,12 @@ namespace Edi.UWP.Helpers
             Clipboard.SetContent(dp);
         }
 
+        /// <summary>
+        /// Save InkCanvas strokes to .ink File
+        /// </summary>
+        /// <param name="inkCanvas">InkCanvas Object</param>
+        /// <param name="location">PickerLocationId</param>
+        /// <returns>Success or not</returns>
         public static async Task<Response<bool>> SaveToInkFile(InkCanvas inkCanvas, PickerLocationId location)
         {
             IRandomAccessStream stream = new InMemoryRandomAccessStream();
@@ -37,11 +46,11 @@ namespace Edi.UWP.Helpers
 
                     SuggestedStartLocation = location
                 };
-                picker.FileTypeChoices.Add("INK files", new List<string>() { ".ink" });
+                picker.FileTypeChoices.Add("INK files", new List<string> { ".ink" });
                 var file = await picker.PickSaveFileAsync();
                 if (file == null)
                 {
-                    return new Response<bool>()
+                    return new Response<bool>
                     {
                         IsSuccess = false,
                         Message = $"{nameof(file)} is null"
@@ -53,20 +62,23 @@ namespace Edi.UWP.Helpers
                 await FileIO.WriteBytesAsync(file, bt);
                 await CachedFileManager.CompleteUpdatesAsync(file);
 
-                return new Response<bool>()
+                return new Response<bool>
                 {
                     IsSuccess = true
                 };
             }
-            else
+            return new Response<bool>
             {
-                return new Response<bool>()
-                {
-                    IsSuccess = false
-                };
-            }
+                IsSuccess = false
+            };
         }
 
+        /// <summary>
+        /// Load strokes from .ink file to InkCanvas
+        /// </summary>
+        /// <param name="inkCanvas">InkCanvas Object</param>
+        /// <param name="location">PickerLocationId</param>
+        /// <returns>Task</returns>
         public static async Task LoadInkFile(InkCanvas inkCanvas, PickerLocationId location)
         {
             var picker = new FileOpenPicker
@@ -82,6 +94,11 @@ namespace Edi.UWP.Helpers
             }
         }
 
+        /// <summary>
+        /// Convert ImageObject to Byte Array
+        /// </summary>
+        /// <param name="fileStream">IRandomAccessStream</param>
+        /// <returns>Byte Array</returns>
         public static async Task<byte[]> ConvertImagetoByte(IRandomAccessStream fileStream)
         {
             var reader = new DataReader(fileStream.GetInputStreamAt(0));
@@ -91,16 +108,32 @@ namespace Edi.UWP.Helpers
             return pixels;
         }
 
+        /// <summary>
+        /// Get Current App Version. e.g. 2.4.1.0
+        /// </summary>
+        /// <returns>App Version</returns>
         public static string GetAppVersion()
         {
             var ver = Windows.ApplicationModel.Package.Current.Id.Version;
             return $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}";
         }
 
+        /// <summary>
+        /// Get Current App Logo Image Uri
+        /// </summary>
+        /// <returns>Uri</returns>
         public static Uri GetAppLogoUri() => Windows.ApplicationModel.Package.Current.Logo;
 
+        /// <summary>
+        /// Get Current App Display Name
+        /// </summary>
+        /// <returns>App Display Name</returns>
         public static string GetAppDisplayName() => Windows.ApplicationModel.Package.Current.DisplayName;
 
+        /// <summary>
+        /// Get Current App Publisher Name
+        /// </summary>
+        /// <returns>App Publisher Name</returns>
         public static string GetAppPublisher() => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
     }
 }
