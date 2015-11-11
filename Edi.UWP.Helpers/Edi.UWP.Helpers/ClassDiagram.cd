@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Converters">
+    <Position X="0.5" Y="4.925" Height="0.284" Width="3.617" />
+  </Comment>
+  <Class Name="Edi.UWP.Helpers.Utils">
+    <Position X="5.25" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAgAAAAAgAAAAAAAQAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Tasks">
+    <Position X="5.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.UI">
+    <Position X="0.5" Y="2" Width="3.25" />
+    <NestedTypes>
+      <Enum Name="Edi.UWP.Helpers.UI.NotificationAudioNames" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAACAABAAAAQAAAAAAAAQAAAAEAAAAAAAAA=</HashCode>
+      <FileName>UI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.CollectionExtensions">
+    <Position X="0.5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollectionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.StringFormatConverter" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\StringFormatConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.BooleanToVisibilityConverter" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BooleanToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToSolidColorBrushValueConverter" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="7.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToRgbStringConverter" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToHexStringConverter" BaseTypeListCollapsed="true">
+    <Position X="6" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToCMYKStringConverter" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAIAAAAQAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorHexStringToBrushConverter" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorHexStringToColorConverter" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.DateTimeToOffsetConverter" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\DateTimeToOffsetConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DBCSCodePage.DBCSEncoding">
+    <Position X="8.5" Y="0.5" Width="3.75" />
+    <NestedTypes>
+      <Class Name="DBCSCodePage.DBCSEncoding.DBCSDecoder">
+        <TypeIdentifier>
+          <NewMemberFileName>DBCSEncoding.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAEQAIABAAAECBAAgAAAAABAAACAAEAAAAUAAAA=</HashCode>
+      <FileName>DBCSEncoding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Response">
+    <Position X="12.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Response&lt;T&gt;">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.ResponseExtension">
+    <Position X="5.25" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
