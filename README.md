@@ -6,6 +6,8 @@ NuGet URL: [https://www.nuget.org/packages/Edi.UWP.Helpers/](https://www.nuget.o
 Author's Blog: [http://edi.wang](http://edi.wang)
 
 ---
+V1.0.4
+
 ## Features
 
 ### Chinese Character Encoding
@@ -36,19 +38,27 @@ internally reference: "Windows Mobile Extensions for the UWP"
 
 namespace: Edi.UWP.Helpers.Mobile
 
-// TODO
+##### Set Background and Foreground Color
 
 <pre>
 Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
 </pre>
 
+##### Hide Status Bar
+
+// TODO
+
 ### UI Helpers
 
 // TODO
 
+##### Set App Window Launch Size
+
 <pre>
 Edi.UWP.Helpers.UI.SetWindowLaunchSize(720, 360);
 </pre>
+
+##### Set Color to App Title Bar
 
 <pre>
 void ApplyColorToTitleBar()
@@ -69,17 +79,7 @@ void ApplyColorToTitleBar()
 
 ### Value Converters
 
-// TODO
-##### BitmapImageConverter
-##### BooleanToVisibilityConverter
-##### ColorHexStringToBrushConverter
-##### ColorHexStringToColorConverter
-##### ColorToCMYKStringConverter
-##### ColorToHexStringConverter
-##### ColorToRgbStringConverter
-##### ColorToSolidColorBrushValueConverter
-##### DateTimeToOffsetConverter
-##### StringFormatConverters
+Recommend to add the coverters to App.xaml in order to use them across all Xaml pages in your application
 
 <pre>
 &lt;Application
@@ -95,9 +95,23 @@ void ApplyColorToTitleBar()
 &lt;/Application&gt;
 </pre>
 
+// TODO
+##### BitmapImageConverter
+##### BooleanToVisibilityConverter
+##### ColorHexStringToBrushConverter
+##### ColorHexStringToColorConverter
+##### ColorToCMYKStringConverter
+##### ColorToHexStringConverter
+##### ColorToRgbStringConverter
+##### ColorToSolidColorBrushValueConverter
+##### DateTimeToOffsetConverter
+##### StringFormatConverters
+
 ### Windows 10 Tasks
 
 // TODO
+
+##### Redirect the user to Windows Store and open Review window for current App
 
 <pre>
 private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
@@ -106,6 +120,10 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 }
 </pre>
 
+##### Open Email Composing
+
+
+
 ### Selector Wrapper
 
 // TODO
@@ -113,6 +131,8 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 ### Other Utility Functions
 
 // TODO
+
+##### Copy string to ClipBoard
 
 ### Extension Methods
 
