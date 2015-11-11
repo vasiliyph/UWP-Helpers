@@ -154,13 +154,7 @@ namespace Edi.UWP.Helpers
         /// <param name="foregroundColor">Foreground Color</param>
         public static void SetWindowsMobileStatusBarColor(Color? backgroundColor, Color? foregroundColor)
         {
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                StatusBar statusBar = StatusBar.GetForCurrentView();
-                statusBar.BackgroundColor = backgroundColor;
-                statusBar.ForegroundColor = foregroundColor;
-                statusBar.BackgroundOpacity = 1;
-            }
+            Mobile.SetWindowsMobileStatusBarColor(backgroundColor, foregroundColor);
         }
 
         /// <summary>
@@ -169,10 +163,7 @@ namespace Edi.UWP.Helpers
         /// <returns>Task</returns>
         public static async Task HideWindowsMobileStatusBar()
         {
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                await StatusBar.GetForCurrentView().HideAsync();
-            }
+            await Mobile.HideWindowsMobileStatusBar();
         }
     }
 }

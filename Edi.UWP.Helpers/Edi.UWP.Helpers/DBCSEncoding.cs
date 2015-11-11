@@ -35,8 +35,7 @@ namespace DBCSCodePage
         public static DBCSEncoding GetDBCSEncoding(string name)
         {
             name = name.ToLower();
-            DBCSEncoding encoding = new DBCSEncoding();
-            encoding._webName = name;
+            DBCSEncoding encoding = new DBCSEncoding {_webName = name};
             if (_cache.ContainsKey(name))
             {
                 var tuple = _cache[name];
@@ -220,11 +219,11 @@ namespace DBCSCodePage
         public override int GetMaxByteCount(int charCount)
         {
             if (charCount < 0)
-                throw new ArgumentOutOfRangeException("charCount");
+                throw new ArgumentOutOfRangeException(nameof(charCount));
             long count = charCount + 1;
             count *= 2;
             if (count > int.MaxValue)
-                throw new ArgumentOutOfRangeException("charCount");
+                throw new ArgumentOutOfRangeException(nameof(charCount));
             return (int)count;
 
         }
@@ -232,10 +231,10 @@ namespace DBCSCodePage
         public override int GetMaxCharCount(int byteCount)
         {
             if (byteCount < 0)
-                throw new ArgumentOutOfRangeException("byteCount");
+                throw new ArgumentOutOfRangeException(nameof(byteCount));
             long count = byteCount + 3;
             if (count > int.MaxValue)
-                throw new ArgumentOutOfRangeException("byteCount");
+                throw new ArgumentOutOfRangeException(nameof(byteCount));
             return (int)count;
         }
 
@@ -244,13 +243,7 @@ namespace DBCSCodePage
             return new DBCSDecoder(this);
         }
 
-        public override string WebName
-        {
-            get
-            {
-                return _webName;
-            }
-        }
+        public override string WebName => _webName;
 
         private sealed class DBCSDecoder : Decoder
         {
