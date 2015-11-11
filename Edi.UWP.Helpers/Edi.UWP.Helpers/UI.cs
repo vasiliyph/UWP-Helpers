@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
@@ -13,12 +10,24 @@ namespace Edi.UWP.Helpers
 {
     public class UI
     {
+        /// <summary>
+        /// Set App Window Preferred Launch View Size
+        /// </summary>
+        /// <param name="height">Window Height</param>
+        /// <param name="width">Window Width</param>
         public static void SetWindowLaunchSize(int height, int width)
         {
             ApplicationView.PreferredLaunchViewSize = new Size { Height = height, Width = width };
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
+        /// <summary>
+        /// Set Color to App Title Bar
+        /// </summary>
+        /// <param name="titleBackgroundColor">Background Color</param>
+        /// <param name="titleForegroundColor">Foreground Color</param>
+        /// <param name="titleInactiveBackgroundColor">Inactive Background Color</param>
+        /// <param name="titleInactiveForegroundColor">Inactive Foreground Color</param>
         public static void ApplyColorToTitleBar(Color? titleBackgroundColor,
             Color? titleForegroundColor, 
             Color? titleInactiveBackgroundColor,
@@ -35,6 +44,17 @@ namespace Edi.UWP.Helpers
             view.TitleBar.InactiveForegroundColor = titleInactiveForegroundColor;
         }
 
+        /// <summary>
+        /// Set Color to App Title Bar Buttons (Maxium, Minus, Close)
+        /// </summary>
+        /// <param name="titleButtonBackgroundColor"></param>
+        /// <param name="titleButtonForegroundColor"></param>
+        /// <param name="titleButtonHoverBackgroundColor"></param>
+        /// <param name="titleButtonHoverForegroundColor"></param>
+        /// <param name="titleButtonPressedBackgroundColor"></param>
+        /// <param name="titleButtonPressedForegroundColor"></param>
+        /// <param name="titleButtonInactiveBackgroundColor"></param>
+        /// <param name="titleButtonInactiveForegroundColor"></param>
         public static void ApplyColorToTitleButton(Color? titleButtonBackgroundColor,
             Color? titleButtonForegroundColor,
             Color? titleButtonHoverBackgroundColor,
@@ -89,6 +109,12 @@ namespace Edi.UWP.Helpers
             Looping_Call10,
         }
 
+        /// <summary>
+        /// Pop up a toast notification, which will stay in Notification Center
+        /// </summary>
+        /// <param name="assetsImageFileName">The image filename under Assets folder</param>
+        /// <param name="text">Notification text</param>
+        /// <param name="audioName">Notification sound</param>
         public static void ShowToastNotification(string assetsImageFileName, string text, NotificationAudioNames audioName)
         {
             // 1. create element
@@ -121,6 +147,11 @@ namespace Edi.UWP.Helpers
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
+        /// <summary>
+        /// Apply a background color to Phone's system status bar
+        /// </summary>
+        /// <param name="backgroundColor">Background Color</param>
+        /// <param name="foregroundColor">Foreground Color</param>
         public static void SetWindowsMobileStatusBarColor(Color? backgroundColor, Color? foregroundColor)
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
@@ -132,6 +163,10 @@ namespace Edi.UWP.Helpers
             }
         }
 
+        /// <summary>
+        /// Hide System Status Bar on Phone, make App full screen
+        /// </summary>
+        /// <returns>Task</returns>
         public static async Task HideWindowsMobileStatusBar()
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
