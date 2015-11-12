@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Networking.Connectivity;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
@@ -24,6 +25,17 @@ namespace Edi.UWP.Helpers
             };
             dp.SetText(str);
             Clipboard.SetContent(dp);
+        }
+
+        /// <summary>
+        /// Detect if current device is connected to the internet
+        /// </summary>
+        /// <returns></returns>
+        public static bool HasInternetConnection()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return internet;
         }
 
         /// <summary>

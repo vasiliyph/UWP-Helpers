@@ -52,5 +52,37 @@ namespace Edi.UWP.Helpers
                 Application.Current.Exit();
             }
         }
+
+        /// <summary>
+        /// Set Windows Phone Status Bar with Text and Progress Indicator
+        /// </summary>
+        /// <param name="backgroundColor">BackgroundColor</param>
+        /// <param name="foregroundColor">ForegroundColor</param>
+        /// <param name="opacity"></param>
+        /// <param name="text">Status Bar Text</param>
+        /// <param name="isIndeterminate">Is .  . . ... . . .  . always showing</param>
+        /// <param name="showProgress">Show Busy Indicator</param>
+        /// <returns></returns>
+        public static async Task ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor,
+            double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false)
+        {
+            StatusBar statusBar = StatusBar.GetForCurrentView();
+            statusBar.BackgroundColor = backgroundColor;
+            statusBar.ForegroundColor = foregroundColor;
+            statusBar.BackgroundOpacity = opacity;
+
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                if (showProgress)
+                {
+                    statusBar.ProgressIndicator.Text = text;
+                    if (!isIndeterminate)
+                    {
+                        statusBar.ProgressIndicator.ProgressValue = 0;
+                    }
+                    await statusBar.ProgressIndicator.ShowAsync();
+                }
+            }
+        }
     }
 }
