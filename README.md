@@ -44,13 +44,21 @@ namespace: Edi.UWP.Helpers.Mobile
 Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
 </pre>
 
-##### Hide Status Bar
+#### Hide Status Bar
 
-// TODO
+Hide System Status Bar on Phone, make App full screen
+
+<pre>
+Edi.UWP.Helpers.HideWindowsMobileStatusBar();
+</pre>
+
+##### Show Text and Progress on Status Bar
+
+<pre>
+Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
+</pre>
 
 ### UI Helpers
-
-// TODO
 
 ##### Set App Window Launch Size
 
@@ -107,6 +115,10 @@ Recommend to add the coverters to App.xaml in order to use them across all Xaml 
 ##### DateTimeToOffsetConverter
 ##### StringFormatConverters
 
+<pre>
+&lt;TextBlock Text=&quot;{Binding Date,Converter={StaticResource ResourceKey=StringFormat}, ConverterParameter=&#39;Last Update {0}&#39;}&quot; /&gt;
+</pre>
+
 ### Windows 10 Tasks
 
 // TODO
@@ -128,11 +140,45 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 
 // TODO
 
+Edi.UWP.Helpers.WrapperBase&lt;T&gt;
+
+Edi.UWP.Helpers.SelectorWrapper&lt;T&gt; : WrapperBase&lt;T&gt;, INotifyPropertyChanged
+
 ### Other Utility Functions
+
+##### Copy string to ClipBoard
+
+<pre>
+Edi.UWP.Helpers.CopyToClipBoard("Hello");
+</pre>
+
+##### Check if device is connected to the Internet
+
+<pre>
+bool isConnected = Edi.UWP.Helpers.HasInternetConnection();
+if (!isConnected)
+{
+    var dig = new MessageDialog("Please Check Internet Connection", "Are you TM kidding me?");
+    await dig.ShowAsync();
+    return;
+}
+</pre>
 
 // TODO
 
-##### Copy string to ClipBoard
+##### Save InkCanvas strokes to .ink File
+
+##### Load strokes from .ink file to InkCanvas
+
+##### Convert ImageObject to Byte Array
+
+##### Get Current App Version
+
+##### Get Current App Logo Image Uri
+
+##### Get Current App Display Name
+
+##### Get Current App Publisher Name
 
 ### Extension Methods
 
