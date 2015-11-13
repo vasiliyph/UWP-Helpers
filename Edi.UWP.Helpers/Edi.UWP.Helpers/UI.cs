@@ -1,15 +1,45 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
+using Windows.Devices.Input;
 using Windows.Foundation;
+using Windows.Graphics.Display;
 using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 
 namespace Edi.UWP.Helpers
 {
     public class UI
     {
+        public static int GetScreenHeight()
+        {
+            var rect = PointerDevice.GetPointerDevices().Last().ScreenRect;
+            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            return (int)(rect.Height * scale);
+        }
+
+        public static int GetScreenWidth()
+        {
+            var rect = PointerDevice.GetPointerDevices().Last().ScreenRect;
+            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            return (int)(rect.Width * scale);
+        }
+
+        public static Color GetAccentColor()
+        {
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                return (Color)Application.Current.Resources["SystemAccentColor"];
+            }
+            else
+            {
+                return new UISettings().GetColorValue(UIColorType.Accent);
+            }
+        }
+
         /// <summary>
         /// Set App Window Preferred Launch View Size
         /// </summary>
@@ -29,7 +59,7 @@ namespace Edi.UWP.Helpers
         /// <param name="titleInactiveBackgroundColor">Inactive Background Color</param>
         /// <param name="titleInactiveForegroundColor">Inactive Foreground Color</param>
         public static void ApplyColorToTitleBar(Color? titleBackgroundColor,
-            Color? titleForegroundColor, 
+            Color? titleForegroundColor,
             Color? titleInactiveBackgroundColor,
             Color? titleInactiveForegroundColor)
         {
