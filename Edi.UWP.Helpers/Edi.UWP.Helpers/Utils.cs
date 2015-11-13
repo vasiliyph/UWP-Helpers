@@ -44,7 +44,7 @@ namespace Edi.UWP.Helpers
         /// <param name="inkCanvas">InkCanvas Object</param>
         /// <param name="location">PickerLocationId</param>
         /// <returns>Success or not</returns>
-        public static async Task<Response<bool>> SaveToInkFile(InkCanvas inkCanvas, PickerLocationId location)
+        public static async Task<Response> SaveToInkFile(InkCanvas inkCanvas, PickerLocationId location)
         {
             IRandomAccessStream stream = new InMemoryRandomAccessStream();
 
@@ -62,7 +62,7 @@ namespace Edi.UWP.Helpers
                 var file = await picker.PickSaveFileAsync();
                 if (file == null)
                 {
-                    return new Response<bool>
+                    return new Response
                     {
                         IsSuccess = false,
                         Message = $"{nameof(file)} is null"
@@ -74,12 +74,12 @@ namespace Edi.UWP.Helpers
                 await FileIO.WriteBytesAsync(file, bt);
                 await CachedFileManager.CompleteUpdatesAsync(file);
 
-                return new Response<bool>
+                return new Response
                 {
                     IsSuccess = true
                 };
             }
-            return new Response<bool>
+            return new Response
             {
                 IsSuccess = false
             };
