@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Networking.Connectivity;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Edi.UWP.Helpers
 {
@@ -118,6 +120,20 @@ namespace Edi.UWP.Helpers
             byte[] pixels = new byte[fileStream.Size];
             reader.ReadBytes(pixels);
             return pixels;
+        }
+
+        /// <summary>
+        /// Load a picture to WriteableBitmap
+        /// </summary>
+        /// <param name="relativePath">e.g. "Assets/example.png"</param>
+        /// <returns>WriteableBitmap</returns>
+        public static async Task<WriteableBitmap> LoadWriteableBitmap(string relativePath)
+        {
+            var storageFile = await Package.Current.InstalledLocation.GetFileAsync(relativePath.Replace('/', '\\'));
+            var stream = await storageFile.OpenReadAsync();
+            var wb = new WriteableBitmap(1, 1);
+            wb.SetSource(stream);
+            return wb;
         }
 
         /// <summary>
