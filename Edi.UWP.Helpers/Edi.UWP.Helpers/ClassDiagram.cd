@@ -4,9 +4,9 @@
     <Position X="0.5" Y="10" Height="0.284" Width="13.63" />
   </Comment>
   <Class Name="Edi.UWP.Helpers.Utils">
-    <Position X="0.5" Y="3" Width="3.25" />
+    <Position X="0.5" Y="3.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>ECAAAgAAAAAgAAAAABAQAAAAAAAABAAAAAIAAAAAQAA=</HashCode>
+      <HashCode>ECAAAgAAAAAgAAAAABAQAAAAAAAABAABAAIAAAAAQAA=</HashCode>
       <FileName>Utils.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,7 +27,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAACAABAAAAQAAAAAAAAQAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAgAACAABAAAAQAAAAAAAAQAAEAEAAAAAAAAQ=</HashCode>
       <FileName>UI.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -142,14 +142,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Edi.UWP.Helpers.ResponseExtension">
-    <Position X="0.5" Y="7.75" Width="3.25" />
+    <Position X="0.5" Y="8.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Response.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Edi.UWP.Helpers.Mobile">
-    <Position X="0.5" Y="5.75" Width="3.25" />
+    <Position X="0.5" Y="6.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgBAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mobile.cs</FileName>
