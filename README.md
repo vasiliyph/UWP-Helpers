@@ -6,7 +6,7 @@ NuGet URL: [https://www.nuget.org/packages/Edi.UWP.Helpers/](https://www.nuget.o
 Author's Blog: [http://edi.wang](http://edi.wang)
 
 ---
-V1.0.4
+V1.0.6
 
 ## Features
 
@@ -155,7 +155,7 @@ Edi.UWP.Helpers.CopyToClipBoard("Hello");
 ##### Check if device is connected to the Internet
 
 <pre>
-bool isConnected = Edi.UWP.Helpers.HasInternetConnection();
+bool isConnected = Edi.UWP.Helpers.Utils.HasInternetConnection();
 if (!isConnected)
 {
     var dig = new MessageDialog("Please Check Internet Connection", "Are you TM kidding me?");
@@ -174,11 +174,30 @@ if (!isConnected)
 
 ##### Get Current App Version
 
+<pre>
+public string Version => Edi.UWP.Helpers.Utils.GetAppVersion();
+</pre>
+
 ##### Get Current App Logo Image Uri
+
+<pre>
+public Uri Logo => Edi.UWP.Helpers.Utils.GetAppLogoUri();
+...
+&lt;Image Source=&quot;{Binding Logo}&quot; Stretch=&quot;None&quot; /&gt;
+</pre>
+
 
 ##### Get Current App Display Name
 
+<pre>
+public string DisplayName => Edi.UWP.Helpers.Utils.GetAppDisplayName();
+</pre>
+
 ##### Get Current App Publisher Name
+
+<pre>
+public string Publisher => Edi.UWP.Helpers.Utils.GetAppPublisher();
+</pre>
 
 ### Extension Methods
 
