@@ -36,7 +36,7 @@ namespace Edi.UWP.Helpers
         /// <returns></returns>
         public static async Task OpenEmailComposeAsync(string toAddress, string subject, string body)
         {
-            var uri = new Uri(string.Format("mailto:?to={0}&subject={1}&body={2}", toAddress, subject, body), UriKind.Absolute);
+            var uri = new Uri($"mailto:{toAddress}?subject={subject}&body={body}", UriKind.Absolute);
             await Launcher.LaunchUriAsync(uri);
         }
     }

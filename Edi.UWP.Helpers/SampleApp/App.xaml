@@ -3,6 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp"
+    xmlns:viewModel="using:SampleApp.ViewModel"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <viewModel:ViewModelLocator xmlns:vm="clr-namespace:SampleApp" x:Key="Locator" />
+    </Application.Resources>
 </Application>

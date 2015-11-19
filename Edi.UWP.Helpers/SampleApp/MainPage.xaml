@@ -5,9 +5,20 @@
     xmlns:local="using:SampleApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Pivot Title="Edi.UWP.Helpers Samples">
+            <PivotItem Header="Tasks">
+                <StackPanel>
+                    <TextBlock Text="Email Compose Task" />
+                    <TextBox Text="{Binding EmailTo, Mode=TwoWay}" PlaceholderText="Email Address" />
+                    <TextBox Text="{Binding EmailSubject, Mode=TwoWay}" PlaceholderText="Subject" />
+                    <TextBox Text="{Binding EmailBody, Mode=TwoWay}" PlaceholderText="Body Content" />
+                    <Button Content="Show Email Compose App" Command="{Binding CommandShowEmailCompose}" />
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
