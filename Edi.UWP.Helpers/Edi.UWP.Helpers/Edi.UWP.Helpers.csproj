@@ -129,6 +129,7 @@
     <Compile Include="Response.cs" />
     <Compile Include="SelectorWrapper.cs" />
     <Compile Include="Tasks.cs" />
+    <Compile Include="ToastHelper.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="Utils.cs" />
     <Content Include="Properties\Edi.UWP.Helpers.rd.xml" />

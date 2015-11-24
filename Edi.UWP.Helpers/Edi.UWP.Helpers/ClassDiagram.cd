@@ -185,5 +185,12 @@
       <FileName>BitmapExtensions.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Edi.UWP.Helpers.ToastHelper">
+    <Position X="12" Y="6" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ToastHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />
 </ClassDiagram>
