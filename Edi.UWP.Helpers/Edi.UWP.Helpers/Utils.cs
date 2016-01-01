@@ -173,5 +173,14 @@ namespace Edi.UWP.Helpers
         /// </summary>
         /// <returns>App Publisher Name</returns>
         public static string GetAppPublisher() => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
+
+        public static string Architecture
+        {
+            get
+            {
+                Package package = Package.Current;
+                return package.Id.Architecture.ToString();
+            }
+        }
     }
 }
