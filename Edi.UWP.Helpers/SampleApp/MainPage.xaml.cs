@@ -26,5 +26,10 @@ namespace SampleApp
         {
             this.InitializeComponent();
         }
+
+        private void BtnMakeException_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new ArgumentException("Test");
+        }
     }
 }

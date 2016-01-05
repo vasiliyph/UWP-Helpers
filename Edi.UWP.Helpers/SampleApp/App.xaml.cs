@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -14,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Edi.UWP.Helpers;
+using UnhandledExceptionEventArgs = Windows.UI.Xaml.UnhandledExceptionEventArgs;
 
 namespace SampleApp
 {
@@ -30,6 +33,30 @@ namespace SampleApp
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += OnUnhandledException;
+        }
+
+        private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            await new MessageDialog("Application Unhandled Exception:\r\n" + e.Exception.Message, "Error :(")
+                .ShowAsync();
+        }
+
+        /// <summary>
+        /// Should be called from OnActivated and OnLaunched
+        /// </summary>
+        private void RegisterExceptionHandlingSynchronizationContext()
+        {
+            ExceptionHandlingSynchronizationContext
+                .Register().UnhandledException += SynchronizationContext_UnhandledException;
+        }
+
+        private async void SynchronizationContext_UnhandledException(object sender, Edi.UWP.Helpers.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            await new MessageDialog("Synchronization Context Unhandled Exception:\r\n" + e.Exception.Message, "Error :(")
+                .ShowAsync();
         }
 
         /// <summary>
@@ -39,13 +66,7 @@ namespace SampleApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
+            RegisterExceptionHandlingSynchronizationContext();
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -76,6 +97,13 @@ namespace SampleApp
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            RegisterExceptionHandlingSynchronizationContext();
+
+            base.OnActivated(args);
         }
 
         /// <summary>

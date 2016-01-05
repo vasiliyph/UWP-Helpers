@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -15,6 +16,15 @@ namespace Edi.UWP.Helpers
 {
     public static class BitmapExtensions
     {
+        public static async Task<WriteableBitmap> LoadWriteableBitmap(string relativePath)
+        {
+            var storageFile = await Package.Current.InstalledLocation.GetFileAsync(relativePath.Replace('/', '\\'));
+            var stream = await storageFile.OpenReadAsync();
+            var wb = new WriteableBitmap(1, 1);
+            wb.SetSource(stream);
+            return wb;
+        }
+
         public static byte[] ToByteArray(this WriteableBitmap bitmap)
         {
             return bitmap.PixelBuffer.ToArray();

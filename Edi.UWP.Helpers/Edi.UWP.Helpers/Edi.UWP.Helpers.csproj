@@ -124,6 +124,7 @@
     <Compile Include="Converters\DateTimeToOffsetConverter.cs" />
     <Compile Include="Converters\StringFormatConverters.cs" />
     <Compile Include="DBCSEncoding.cs" />
+    <Compile Include="ExceptionHandlingSynchronizationContext.cs" />
     <Compile Include="Mobile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JsonDataRepository.cs" />

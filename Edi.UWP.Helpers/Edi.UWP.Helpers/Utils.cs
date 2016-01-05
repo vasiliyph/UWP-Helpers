@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -27,6 +28,29 @@ namespace Edi.UWP.Helpers
             };
             dp.SetText(str);
             Clipboard.SetContent(dp);
+        }
+
+        public static async Task<string> GetXmlStringAsync(string assetsFileName)
+        {
+            var storageFile = await Package.Current.InstalledLocation.GetFileAsync($"Assets/{assetsFileName}".Replace('/', '\\'));
+            var fStream = await storageFile.OpenReadAsync();
+
+            var stream = fStream.AsStream();
+
+            if (stream == null)
+            {
+                throw new FileNotFoundException("Could not find embedded mappings resource file.");
+            }
+
+            var reader = new StreamReader(stream);
+            string s = reader.ReadToEnd();
+            return s;
+        }
+
+        public static string GetResource(string key)
+        {
+            return
+                Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue(key).ValueAsString;
         }
 
         /// <summary>

@@ -19,6 +19,9 @@
                     <Button Content="Show Email Compose App" Command="{Binding CommandShowEmailCompose}" />
                 </StackPanel>
             </PivotItem>
+            <PivotItem Header="Exception">
+                <Button x:Name="BtnMakeException" Content="Make Exception" Click="BtnMakeException_OnClick" />
+            </PivotItem>
         </Pivot>
     </Grid>
 </Page>
