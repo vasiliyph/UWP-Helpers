@@ -1,12 +1,12 @@
 # Edi.UWP.Helpers
-Helpers and Utils for Windows 10 UWP Projects
+Helpers and Utils for Windows 10 UWP Projects. This document is not always keep updated with the library. Please check sample app also (also not always updated, what a big Ken it is!)
 
 NuGet URL: [https://www.nuget.org/packages/Edi.UWP.Helpers/](https://www.nuget.org/packages/Edi.UWP.Helpers/)
 
 Author's Blog: [http://edi.wang](http://edi.wang)
 
 ---
-V1.0.6
+V1.0.10
 
 ## Features
 
