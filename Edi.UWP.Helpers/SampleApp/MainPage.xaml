@@ -8,19 +8,64 @@
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="AppBarButtonAbout" Icon="OutlineStar" Label="about" Click="AppBarButtonAbout_OnClick" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot Title="Edi.UWP.Helpers Samples">
             <PivotItem Header="Tasks">
                 <StackPanel>
-                    <TextBlock Text="Email Compose Task" />
+                    <TextBlock Text="Email Compose Task" Margin="0,0,0,5" />
                     <TextBox Text="{Binding EmailTo, Mode=TwoWay}" PlaceholderText="Email Address" />
                     <TextBox Text="{Binding EmailSubject, Mode=TwoWay}" PlaceholderText="Subject" />
                     <TextBox Text="{Binding EmailBody, Mode=TwoWay}" PlaceholderText="Body Content" />
                     <Button Content="Show Email Compose App" Command="{Binding CommandShowEmailCompose}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+                    
+                    <TextBlock Text="Store Review Task (don't work for this example app because it won't be published to store)" TextWrapping="Wrap" Margin="0,0,0,5" />
+                    <Button Content="Show Store Review" Command="{Binding CommandReview}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Open Website Task" Margin="0,0,0,5" />
+                    <Button Content="Open http://edi.wang" Command="{Binding CommandOpenWebsite}" />
+
+                    
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Exception">
-                <Button x:Name="BtnMakeException" Content="Make Exception" Click="BtnMakeException_OnClick" />
+                <Button x:Name="BtnMakeException" Content="Make Exception" Click="BtnMakeException_OnClick" VerticalAlignment="Top" />
+            </PivotItem>
+            <PivotItem Header="Utils">
+                <StackPanel>
+                    <TextBlock Text="Copy To ClipBoard" />
+                    <TextBox Text="{Binding TxtToCopy, Mode=TwoWay}" />
+                    <Button Content="Copy" Command="{Binding CommandCopy}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Has Internet Connection" />
+                    <TextBlock Text="{Binding HasInternetConnection}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Make Phone Call (Require Windows 10 Mobile)" TextWrapping="Wrap" />
+                    <TextBox Header="Display Name" Text="{Binding DisplayName, Mode=TwoWay}" />
+                    <TextBox Header="Phone Number" Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                    <Button Content="Call" Command="{Binding CommandCall}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+                </StackPanel>
             </PivotItem>
         </Pivot>
     </Grid>

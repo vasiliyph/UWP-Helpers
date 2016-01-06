@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -86,6 +87,23 @@ namespace SampleApp
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+                Edi.UWP.Helpers.UI.SetWindowLaunchSize(800, 480);
+
+                Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
+                Color.FromArgb(255, 0, 114, 188),
+                Colors.White,
+                Colors.LightGray,
+                Colors.Gray);
+
+                Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
+                Color.FromArgb(255, 0, 114, 188), Colors.White,
+                Color.FromArgb(255, 51, 148, 208), Colors.White,
+                Color.FromArgb(255, 0, 114, 188), Colors.White,
+                Colors.LightGray, Colors.Gray);
+
+
+                Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
             }
 
             if (rootFrame.Content == null)

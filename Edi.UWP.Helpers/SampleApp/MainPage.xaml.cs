@@ -31,5 +31,10 @@ namespace SampleApp
         {
             throw new ArgumentException("Test");
         }
+
+        private void AppBarButtonAbout_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
