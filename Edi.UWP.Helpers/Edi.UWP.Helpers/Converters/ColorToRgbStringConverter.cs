@@ -4,6 +4,9 @@ using Windows.UI.Xaml.Data;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert Color to RGB string
+    /// </summary>
     public class ColorToRgbStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

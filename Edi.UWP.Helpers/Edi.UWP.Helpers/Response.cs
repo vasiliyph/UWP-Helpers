@@ -5,10 +5,19 @@ namespace Edi.UWP.Helpers
 {
     public class Response
     {
+        /// <summary>
+        /// Whether the operation is success
+        /// </summary>
         public bool IsSuccess { get; set; }
 
+        /// <summary>
+        /// Response message
+        /// </summary>
         public string Message { get; set; }
 
+        /// <summary>
+        /// If response blow up, should give the exception
+        /// </summary>
         public Exception Exception { get; set; }
 
         public Response()
@@ -20,6 +29,9 @@ namespace Edi.UWP.Helpers
 
     public class Response<T> : Response
     {
+        /// <summary>
+        /// Reponse type of object
+        /// </summary>
         public T Item { get; set; }
     }
 

@@ -7,6 +7,9 @@ namespace Edi.UWP.Helpers
 {
     public class JsonDataRepository<T> where T : class
     {
+        /// <summary>
+        /// Json file name which will be used to save data
+        /// </summary>
         public string JsonFileName { get; set; }
 
         public JsonDataRepository(string jsonfilename)
@@ -14,6 +17,11 @@ namespace Edi.UWP.Helpers
             JsonFileName = jsonfilename;
         }
 
+        /// <summary>
+        /// Sava data to json file
+        /// </summary>
+        /// <param name="data">data object</param>
+        /// <returns>Task</returns>
         public async Task SaveDataAsync(T data)
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
@@ -24,6 +32,10 @@ namespace Edi.UWP.Helpers
             }
         }
 
+        /// <summary>
+        /// Get data from json file
+        /// </summary>
+        /// <returns>data object</returns>
         public async Task<T> LoadDataAsync()
         {
             try

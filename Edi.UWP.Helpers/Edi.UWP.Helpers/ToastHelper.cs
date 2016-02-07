@@ -8,11 +8,25 @@ namespace Edi.UWP.Helpers
 {
     public static class ToastHelper
     {
+        /// <summary>
+        /// Show notification in Action Center
+        /// </summary>
+        /// <param name="title">Notification title</param>
+        /// <param name="content">Notification content</param>
+        /// <returns>ToastNotification</returns>
         public static ToastNotification PopToast(string title, string content)
         {
             return PopToast(title, content, null, null);
         }
 
+        /// <summary>
+        /// Show notification in Action Center
+        /// </summary>
+        /// <param name="title">Notification title</param>
+        /// <param name="content">Notification content</param>
+        /// <param name="tag">Tag</param>
+        /// <param name="group">Group</param>
+        /// <returns>ToastNotification</returns>
         public static ToastNotification PopToast(string title, string content, string tag, string group)
         {
             string xml = $@"<toast activationType='foreground'>
@@ -39,11 +53,23 @@ namespace Edi.UWP.Helpers
             return PopCustomToast(doc, tag, group);
         }
 
+        /// <summary>
+        /// Show notification by custom xml
+        /// </summary>
+        /// <param name="xml">notification xml</param>
+        /// <returns>ToastNotification</returns>
         public static ToastNotification PopCustomToast(string xml)
         {
             return PopCustomToast(xml, null, null);
         }
 
+        /// <summary>
+        /// Show notification by custom xml
+        /// </summary>
+        /// <param name="xml">notification xml</param>
+        /// <param name="tag">tag</param>
+        /// <param name="group">group</param>
+        /// <returns>ToastNotification</returns>
         public static ToastNotification PopCustomToast(string xml, string tag, string group)
         {
             XmlDocument doc = new XmlDocument();
@@ -53,6 +79,13 @@ namespace Edi.UWP.Helpers
             return PopCustomToast(doc, tag, group);
         }
 
+        /// <summary>
+        /// Show notification by custom xml
+        /// </summary>
+        /// <param name="doc">notification xml</param>
+        /// <param name="tag">tag</param>
+        /// <param name="group">group</param>
+        /// <returns>ToastNotification</returns>
         [DefaultOverload]
         public static ToastNotification PopCustomToast(XmlDocument doc, string tag, string group)
         {

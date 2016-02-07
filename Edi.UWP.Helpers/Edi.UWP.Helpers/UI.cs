@@ -14,6 +14,10 @@ namespace Edi.UWP.Helpers
 {
     public class UI
     {
+        /// <summary>
+        /// Get current device screen height in pixel
+        /// </summary>
+        /// <returns></returns>
         public static int GetScreenHeight()
         {
             var rect = PointerDevice.GetPointerDevices().Last().ScreenRect;

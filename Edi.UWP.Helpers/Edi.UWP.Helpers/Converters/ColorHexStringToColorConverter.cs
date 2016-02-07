@@ -4,6 +4,9 @@ using Windows.UI.Xaml.Data;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Covert HEX color string to Color
+    /// </summary>
     public class ColorHexStringToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

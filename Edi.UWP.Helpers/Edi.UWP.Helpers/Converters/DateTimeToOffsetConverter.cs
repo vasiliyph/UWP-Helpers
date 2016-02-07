@@ -3,6 +3,9 @@ using Windows.UI.Xaml.Data;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert DateTime to DateTimeOffset
+    /// </summary>
     public class DateTimeToOffsetConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

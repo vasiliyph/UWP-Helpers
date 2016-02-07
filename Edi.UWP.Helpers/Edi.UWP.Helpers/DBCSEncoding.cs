@@ -32,6 +32,11 @@ namespace DBCSCodePage
 
         private DBCSEncoding() { }
 
+        /// <summary>
+        /// Get Encoding by name (e.g. gb2312)
+        /// </summary>
+        /// <param name="name">encoding name</param>
+        /// <returns>DBCSEncoding</returns>
         public static DBCSEncoding GetDBCSEncoding(string name)
         {
             name = name.ToLower();

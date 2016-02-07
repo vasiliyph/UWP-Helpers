@@ -5,6 +5,9 @@ using Windows.UI.Xaml.Media;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert Color to SolidColorBrush
+    /// </summary>
     public class ColorToSolidColorBrushValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

@@ -5,6 +5,9 @@ using Windows.UI.Xaml.Media;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert HEX color string to SolidColorBrush
+    /// </summary>
     public class ColorHexStringToBrushConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

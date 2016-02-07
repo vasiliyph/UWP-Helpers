@@ -6,6 +6,9 @@ using Windows.UI.Xaml.Data;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert HEX color string to CMYK string
+    /// </summary>
     public class ColorToCMYKStringConverter : IValueConverter
     {
         private static string CMYKtoHex(decimal[] cmyk)

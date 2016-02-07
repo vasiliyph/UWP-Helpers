@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Graphics.Imaging;
@@ -16,6 +13,11 @@ namespace Edi.UWP.Helpers
 {
     public static class BitmapExtensions
     {
+        /// <summary>
+        /// Return WriteableBitmap object from a given path
+        /// </summary>
+        /// <param name="relativePath">file path</param>
+        /// <returns>WriteableBitmap</returns>
         public static async Task<WriteableBitmap> LoadWriteableBitmap(string relativePath)
         {
             var storageFile = await Package.Current.InstalledLocation.GetFileAsync(relativePath.Replace('/', '\\'));
@@ -25,16 +27,33 @@ namespace Edi.UWP.Helpers
             return wb;
         }
 
+        /// <summary>
+        /// Return byte array of a bitmap object
+        /// </summary>
+        /// <param name="bitmap">bitmap</param>
+        /// <returns>byte array</returns>
         public static byte[] ToByteArray(this WriteableBitmap bitmap)
         {
             return bitmap.PixelBuffer.ToArray();
         }
 
+        /// <summary>
+        /// Convert bitmap object to Stream
+        /// </summary>
+        /// <param name="bitmap">bitmap</param>
+        /// <returns>Stream</returns>
         public static Stream ToStream(this WriteableBitmap bitmap)
         {
             return bitmap.PixelBuffer.AsStream();
         }
 
+        /// <summary>
+        /// Save a bitmap to a PNG file
+        /// </summary>
+        /// <param name="bitmap">bitmap</param>
+        /// <param name="location">path</param>
+        /// <param name="fileName">file name</param>
+        /// <returns>FileUpdateStatus</returns>
         public static async Task<FileUpdateStatus> SaveToPngImage(this WriteableBitmap bitmap, PickerLocationId location, string fileName)
         {
             var savePicker = new FileSavePicker

@@ -4,6 +4,9 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Edi.UWP.Helpers.Converters
 {
+    /// <summary>
+    /// Convert URL of an image file to BitmapImage
+    /// </summary>
     public class BitmapImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
