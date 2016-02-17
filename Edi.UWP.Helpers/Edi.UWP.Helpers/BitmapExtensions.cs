@@ -63,6 +63,23 @@ namespace Edi.UWP.Helpers
             savePicker.FileTypeChoices.Add("Png Image", new[] { ".png" });
             savePicker.SuggestedFileName = fileName;
             StorageFile sFile = await savePicker.PickSaveFileAsync();
+            return await WriteToStorageFile(bitmap, sFile);
+        }
+
+        /// <summary>
+        /// Save a bitmap to a StorageFile object
+        /// </summary>
+        /// <param name="bitmap">bitmap</param>
+        /// <param name="file">StorageFile object</param>
+        /// <returns>FileUpdateStatus</returns>
+        public static async Task<FileUpdateStatus> SaveStorageFile(this WriteableBitmap bitmap, StorageFile file)
+        {
+            return await WriteToStorageFile(bitmap, file);
+        }
+
+        private static async Task<FileUpdateStatus> WriteToStorageFile(WriteableBitmap bitmap, StorageFile file)
+        {
+            StorageFile sFile = file;
             if (sFile != null)
             {
                 CachedFileManager.DeferUpdates(sFile);
@@ -74,11 +91,11 @@ namespace Edi.UWP.Helpers
                     byte[] pixels = new byte[pixelStream.Length];
                     await pixelStream.ReadAsync(pixels, 0, pixels.Length);
                     encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                              (uint)bitmap.PixelWidth,
-                              (uint)bitmap.PixelHeight,
-                              96.0,
-                              96.0,
-                              pixels);
+                        (uint) bitmap.PixelWidth,
+                        (uint) bitmap.PixelHeight,
+                        96.0,
+                        96.0,
+                        pixels);
                     await encoder.FlushAsync();
                 }
 
