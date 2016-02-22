@@ -47,25 +47,49 @@
                 <Button x:Name="BtnMakeException" Content="Make Exception" Click="BtnMakeException_OnClick" VerticalAlignment="Top" />
             </PivotItem>
             <PivotItem Header="Utils">
-                <StackPanel>
-                    <TextBlock Text="Copy To ClipBoard" />
-                    <TextBox Text="{Binding TxtToCopy, Mode=TwoWay}" />
-                    <Button Content="Copy" Command="{Binding CommandCopy}" />
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock Text="Copy To ClipBoard" />
+                        <TextBox Text="{Binding TxtToCopy, Mode=TwoWay}" />
+                        <Button Content="Copy" Command="{Binding CommandCopy}" />
 
-                    <Border Height="1" Background="#EEE" Margin="0,15" />
+                        <Border Height="1" Background="#EEE" Margin="0,15" />
 
-                    <TextBlock Text="Has Internet Connection" />
-                    <TextBlock Text="{Binding HasInternetConnection}" />
+                        <TextBlock Text="Has Internet Connection" />
+                        <TextBlock Text="{Binding HasInternetConnection}" />
 
-                    <Border Height="1" Background="#EEE" Margin="0,15" />
+                        <Border Height="1" Background="#EEE" Margin="0,15" />
 
-                    <TextBlock Text="Make Phone Call (Require Windows 10 Mobile)" TextWrapping="Wrap" />
-                    <TextBox Header="Display Name" Text="{Binding DisplayName, Mode=TwoWay}" />
-                    <TextBox Header="Phone Number" Text="{Binding PhoneNumber, Mode=TwoWay}" />
-                    <Button Content="Call" Command="{Binding CommandCall}" />
+                        <TextBlock Text="Make Phone Call (Require Windows 10 Mobile)" TextWrapping="Wrap" />
+                        <TextBox Header="Display Name" Text="{Binding DisplayName, Mode=TwoWay}" />
+                        <TextBox Header="Phone Number" Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                        <Button Content="Call" Command="{Binding CommandCall}" />
 
-                    <Border Height="1" Background="#EEE" Margin="0,15" />
-                </StackPanel>
+                        <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                        <TextBlock Text="Get Xml String" />
+                        <Button Content="Read Assets\test.xml" Margin="0,5,0,0" Command="{Binding CommandReadXml}" />
+                        <TextBlock TextWrapping="Wrap" Text="{Binding XmlResult}" />
+
+                        <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                        <!--<TextBlock Text="GetResource" />
+                    <Button Content="GetResource('TestRes1')" Margin="0,5,0,0" Command="{Binding CommandGetResource}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding ResOutput}" />-->
+
+                        <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                        <TextBlock Text="Save To Ink File" />
+                        <Border BorderBrush="#CCC" BorderThickness="1" Height="302" Width="302" HorizontalAlignment="Left">
+                            <InkCanvas x:Name="InkDefault" Height="300" Width="300" />
+                        </Border>
+                        
+                        <Button x:Name="BtnSaveInk" Content="Save to .ink File" Click="BtnSaveInk_OnClick" />
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="BitmapExtensions">
+                
             </PivotItem>
         </Pivot>
     </Grid>
