@@ -85,10 +85,23 @@
                         </Border>
                         
                         <Button x:Name="BtnSaveInk" Content="Save to .ink File" Click="BtnSaveInk_OnClick" />
+
+                        <TextBlock Text="Get App Version" />
+                        <TextBlock Text="{Binding AppVersion}" />
+                        <Button Content="Get App Version" Margin="0,5,0,0" Command="{Binding CommandGetAppVersion}" />
+
+                        <TextBlock Text="Get App Display Name" />
+                        <TextBlock Text="{Binding AppDisplayName}" />
+                        <Button Content="Get App Display Name" Margin="0,5,0,0" Command="{Binding CommandGetAppDisplayName}" />
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
             <PivotItem Header="BitmapExtensions">
+                <StackPanel>
+                    <Image x:Name="LoadBitMapTarget" Width="360" MinHeight="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Button x:Name="BtnLoadBitmap" Content="LoadWriteableBitmap" Margin="0,10,0,10" Click="BtnLoadBitmap_OnClick" />
+                    <Button x:Name="BtnSavePng" Content="Save to PNG" Click="BtnSavePng_OnClick" />
+                </StackPanel>
                 
             </PivotItem>
         </Pivot>

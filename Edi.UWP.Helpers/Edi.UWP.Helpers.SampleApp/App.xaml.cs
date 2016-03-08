@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -90,6 +91,16 @@ namespace Edi.UWP.Helpers.SampleApp
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+                rootFrame.Navigated += OnNavigated;
+
+                // Register a handler for BackRequested events and set the
+                // visibility of the Back button
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    rootFrame.CanGoBack ?
+                    AppViewBackButtonVisibility.Visible :
+                    AppViewBackButtonVisibility.Collapsed;
 
                 Edi.UWP.Helpers.UI.SetWindowLaunchSize(800, 480);
 
@@ -118,6 +129,33 @@ namespace Edi.UWP.Helpers.SampleApp
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame != null)
+            {
+                if (rootFrame.CanGoBack)
+                {
+                    e.Handled = true;
+                    rootFrame.GoBack();
+                }
+                else
+                {
+                    Application.Current.Exit();
+                }
+            }
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            // Each time a navigation event occurs, update the Back button's visibility
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
         }
 
         protected override void OnActivated(IActivatedEventArgs args)

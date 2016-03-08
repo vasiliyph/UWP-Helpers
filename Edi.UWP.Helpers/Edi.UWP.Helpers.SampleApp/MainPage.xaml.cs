@@ -38,12 +38,23 @@ namespace Edi.UWP.Helpers.SampleApp
 
         private void AppBarButtonAbout_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            Frame.Navigate(typeof (About));
         }
 
         private async void BtnSaveInk_OnClick(object sender, RoutedEventArgs e)
         {
             await Edi.UWP.Helpers.Utils.SaveToInkFile(InkDefault, PickerLocationId.Desktop);
+        }
+
+        private async void BtnLoadBitmap_OnClick(object sender, RoutedEventArgs e)
+        {
+            LoadBitMapTarget.Source = await Edi.UWP.Helpers.BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
+        }
+
+        private async void BtnSavePng_OnClick(object sender, RoutedEventArgs e)
+        {
+            var bitmap = await Edi.UWP.Helpers.BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
+            await bitmap.SaveToPngImage(PickerLocationId.PicturesLibrary, "example-image");
         }
     }
 }

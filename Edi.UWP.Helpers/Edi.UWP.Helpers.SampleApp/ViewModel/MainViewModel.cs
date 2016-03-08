@@ -33,6 +33,8 @@ namespace Edi.UWP.Helpers.SampleApp.ViewModel
         private string _displayName;
         private string _xmlResult;
         private string _resOutput;
+        private string _appVersion;
+        private string _appDisplayName;
 
         public string EmailBody
         {
@@ -80,6 +82,18 @@ namespace Edi.UWP.Helpers.SampleApp.ViewModel
             set { _resOutput = value; RaisePropertyChanged(); }
         }
 
+        public string AppVersion
+        {
+            get { return _appVersion; }
+            set { _appVersion = value; RaisePropertyChanged(); }
+        }
+
+        public string AppDisplayName
+        {
+            get { return _appDisplayName; }
+            set { _appDisplayName = value; RaisePropertyChanged(); }
+        }
+
         public RelayCommand CommandShowEmailCompose { get; set; }
 
         public RelayCommand CommandReview { get; set; }
@@ -93,6 +107,10 @@ namespace Edi.UWP.Helpers.SampleApp.ViewModel
         public RelayCommand CommandReadXml { get; set; }
 
         public RelayCommand CommandGetResource { get; set; }
+
+        public RelayCommand CommandGetAppVersion { get; set; }
+
+        public RelayCommand CommandGetAppDisplayName { get; set; }
 
         public MainViewModel()
         {
@@ -109,6 +127,14 @@ namespace Edi.UWP.Helpers.SampleApp.ViewModel
             CommandCopy = new RelayCommand(()=> Edi.UWP.Helpers.Utils.CopyToClipBoard(TxtToCopy));
             CommandCall = new RelayCommand(() => Edi.UWP.Helpers.Utils.MakePhoneCall(PhoneNumber, DisplayName));
             CommandReadXml = new RelayCommand(async () => await ReadXml());
+            CommandGetAppVersion = new RelayCommand(() =>
+            {
+                AppVersion = Edi.UWP.Helpers.Utils.GetAppVersion();
+            });
+            CommandGetAppDisplayName = new RelayCommand(() =>
+            {
+                AppDisplayName = Edi.UWP.Helpers.Utils.GetAppDisplayName();
+            });
             
             // this blow up
             //CommandGetResource = new RelayCommand(() =>
