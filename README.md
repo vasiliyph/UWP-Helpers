@@ -105,16 +105,60 @@ Recommend to add the coverters to App.xaml in order to use them across all Xaml 
 &lt;/Application&gt;
 </pre>
 
-// TODO
 ##### BitmapImageConverter
+
+<pre>
+
+</pre>
+
 ##### BooleanToVisibilityConverter
+
+<pre>
+
+</pre>
+
 ##### ColorHexStringToBrushConverter
+
+<pre>
+
+</pre>
+
 ##### ColorHexStringToColorConverter
+
+<pre>
+
+</pre>
+
 ##### ColorToCMYKStringConverter
+
+<pre>
+
+</pre>
+
 ##### ColorToHexStringConverter
+
+<pre>
+
+</pre>
+
 ##### ColorToRgbStringConverter
+
+<pre>
+
+</pre>
+
 ##### ColorToSolidColorBrushValueConverter
+
+<pre>
+
+</pre>
+
 ##### DateTimeToOffsetConverter
+
+<pre>
+&lt;DatePicker x:Uid=&quot;DpEndDate&quot; Date=&quot;{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeToOffsetConverter}}&quot; /&gt;
+</pre>
+
 ##### StringFormatConverters
 
 <pre>
@@ -122,8 +166,6 @@ Recommend to add the coverters to App.xaml in order to use them across all Xaml 
 </pre>
 
 ### Windows 10 Tasks
-
-// TODO
 
 ##### Redirect the user to Windows Store and open Review window for current App
 
@@ -136,7 +178,7 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 
 ##### Open Email Composing
 
-
+// TODO
 
 ### Selector Wrapper
 
@@ -166,13 +208,36 @@ if (!isConnected)
 }
 </pre>
 
-// TODO
-
 ##### Save InkCanvas strokes to .ink File
+
+<pre>
+public InkCanvas InkCanvas { get; set; }
+
+public InkOperator(InkCanvas ink)
+{
+    InkCanvas = ink;
+}
+
+public async Task<bool> SaveToInkFile(PickerLocationId location)
+{
+    var response = await Edi.UWP.Helpers.Utils.SaveToInkFile(InkCanvas, location);
+    return response.IsSuccess;
+}
+
+</pre>
 
 ##### Load strokes from .ink file to InkCanvas
 
+<pre>
+public async Task LoadInkFile(PickerLocationId location)
+{
+    await Edi.UWP.Helpers.Utils.LoadInkFile(InkCanvas, location);
+}
+</pre>
+
 ##### Convert ImageObject to Byte Array
+
+// TODO
 
 ##### Get Current App Version
 
