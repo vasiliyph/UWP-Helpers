@@ -9,7 +9,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Provider;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace Edi.UWP.Helpers
+namespace Edi.UWP.Helpers.Extensions
 {
     public static class BitmapExtensions
     {
