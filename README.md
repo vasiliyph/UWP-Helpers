@@ -17,8 +17,8 @@ PM> Install-Package Edi.UWP.Helpers
 
 ## Features
 
-### Chinese Character Encoding
-
+### 1. Chinese Character Encoding
+===
 <pre>
 using (var client = new HttpClient())
 {
@@ -33,16 +33,14 @@ using (var client = new HttpClient())
 }
 </pre>
 
-### Windows 10 Mobile System Status Bar
-------------------
+### 2. Windows 10 Mobile System Status Bar
+===
 #### Set Background and Foreground Color
 <pre>
 Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
 </pre>
 
 #### Hide Status Bar
-Hide System Status Bar on Phone, make App full screen
-
 <pre>
 Edi.UWP.Helpers.HideWindowsMobileStatusBar();
 </pre>
@@ -52,15 +50,15 @@ Edi.UWP.Helpers.HideWindowsMobileStatusBar();
 Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
 </pre>
 
-### UI Helpers
-------------------
-##### Set App Window Launch Size
+### 3. UI Helpers
+===
+#### Set App Window Launch Size
 
 <pre>
 Edi.UWP.Helpers.UI.SetWindowLaunchSize(720, 360);
 </pre>
 
-##### Set Color to App Title Bar
+#### Set Color to App Title Bar
 
 <pre>
 void ApplyColorToTitleBar()
@@ -79,7 +77,8 @@ void ApplyColorToTitleBar()
 }
 </pre>
 
-### Value Converters
+### 4. Value Converters
+===
 
 Add the coverters to App.xaml in order to use them across all Xaml pages in your application
 
@@ -97,69 +96,59 @@ Add the coverters to App.xaml in order to use them across all Xaml pages in your
 &lt;/Application&gt;
 </pre>
 
-##### BitmapImageConverter
-
+#### BitmapImageConverter
 <pre>
 
 </pre>
 
-##### BooleanToVisibilityConverter
-
+#### BooleanToVisibilityConverter
 <pre>
 
 </pre>
 
-##### ColorHexStringToBrushConverter
-
+#### ColorHexStringToBrushConverter
 <pre>
 
 </pre>
 
-##### ColorHexStringToColorConverter
-
+#### ColorHexStringToColorConverter
 <pre>
 
 </pre>
 
-##### ColorToCMYKStringConverter
-
+#### ColorToCMYKStringConverter
 <pre>
 
 </pre>
 
-##### ColorToHexStringConverter
-
+#### ColorToHexStringConverter
 <pre>
 
 </pre>
 
-##### ColorToRgbStringConverter
-
+#### ColorToRgbStringConverter
 <pre>
 
 </pre>
 
-##### ColorToSolidColorBrushValueConverter
-
+#### ColorToSolidColorBrushValueConverter
 <pre>
 
 </pre>
 
-##### DateTimeToOffsetConverter
-
+#### DateTimeToOffsetConverter
 <pre>
 &lt;DatePicker x:Uid=&quot;DpEndDate&quot; Date=&quot;{Binding EndDate, Mode=TwoWay, Converter={StaticResource DateTimeToOffsetConverter}}&quot; /&gt;
 </pre>
 
-##### StringFormatConverters
-
+#### StringFormatConverters
 <pre>
 &lt;TextBlock Text=&quot;{Binding Date,Converter={StaticResource ResourceKey=StringFormat}, ConverterParameter=&#39;Last Update {0}&#39;}&quot; /&gt;
 </pre>
 
 ### Windows 10 Tasks
-------------------
-##### Redirect the user to Windows Store and open Review window for current App
+===
+#### Redirect the user to Windows Store and open Review window for current App
 
 <pre>
 private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
@@ -168,13 +157,13 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 }
 </pre>
 
-##### Open Email Composing
-
+#### Open Email Composing
 <pre>
 
 </pre>
 
 ### Selector Wrapper
+===
 
 <pre>
 
@@ -185,7 +174,7 @@ Edi.UWP.Helpers.WrapperBase&lt;T&gt;
 Edi.UWP.Helpers.SelectorWrapper&lt;T&gt; : WrapperBase&lt;T&gt;, INotifyPropertyChanged
 
 ### Other Utility Functions
---------------------
+===
 #### Copy string to ClipBoard
 <pre>
 Edi.UWP.Helpers.CopyToClipBoard("Hello");
@@ -254,12 +243,12 @@ public string Publisher => Edi.UWP.Helpers.Utils.GetAppPublisher();
 </pre>
 
 ### Extension Methods
----------------------
+===
 
 // TODO
 
 ### Tricks
----------------------
+===
 Set Title Bar to System Accent Theme color:
 
 <pre>
