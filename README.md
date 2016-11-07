@@ -7,18 +7,17 @@ Sample App: https://www.microsoft.com/zh-cn/store/apps/ediuwphelpers-sample-app/
 
 Author's Blog: [http://edi.wang](http://edi.wang)
 
----
-V1.0.11
+## Install
+
+To install Edi.UWP.Helpers, run the following command in the Package Manager Console
+
+<pre>
+PM> Install-Package Edi.UWP.Helpers
+</pre>
 
 ## Features
 
 ### Chinese Character Encoding
-
-- big5.bin
-- gb2312.bin
-- DBCSEncoding.cs
-
-#### Usage:
 
 <pre>
 using (var client = new HttpClient())
@@ -35,12 +34,7 @@ using (var client = new HttpClient())
 </pre>
 
 ### Windows Phone System Status Bar
-
-internally reference: "Windows Mobile Extensions for the UWP"
-
-namespace: Edi.UWP.Helpers.Mobile
-
-##### Set Background and Foreground Color
+#### Set Background and Foreground Color
 
 <pre>
 Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
@@ -54,7 +48,7 @@ Hide System Status Bar on Phone, make App full screen
 Edi.UWP.Helpers.HideWindowsMobileStatusBar();
 </pre>
 
-##### Show Text and Progress on Status Bar
+#### Show Text and Progress on Status Bar
 
 <pre>
 Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
@@ -89,7 +83,7 @@ void ApplyColorToTitleBar()
 
 ### Value Converters
 
-Recommend to add the coverters to App.xaml in order to use them across all Xaml pages in your application
+Add the coverters to App.xaml in order to use them across all Xaml pages in your application
 
 <pre>
 &lt;Application
