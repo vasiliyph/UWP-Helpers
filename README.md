@@ -33,15 +33,14 @@ using (var client = new HttpClient())
 }
 </pre>
 
-### Windows Phone System Status Bar
+### Windows 10 Mobile System Status Bar
+------------------
 #### Set Background and Foreground Color
-
 <pre>
 Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
 </pre>
 
 #### Hide Status Bar
-
 Hide System Status Bar on Phone, make App full screen
 
 <pre>
@@ -49,13 +48,12 @@ Edi.UWP.Helpers.HideWindowsMobileStatusBar();
 </pre>
 
 #### Show Text and Progress on Status Bar
-
 <pre>
 Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
 </pre>
 
 ### UI Helpers
-
+------------------
 ##### Set App Window Launch Size
 
 <pre>
@@ -160,7 +158,7 @@ Add the coverters to App.xaml in order to use them across all Xaml pages in your
 </pre>
 
 ### Windows 10 Tasks
-
+------------------
 ##### Redirect the user to Windows Store and open Review window for current App
 
 <pre>
@@ -172,26 +170,28 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 
 ##### Open Email Composing
 
-// TODO
+<pre>
+
+</pre>
 
 ### Selector Wrapper
 
-// TODO
+<pre>
+
+</pre>
 
 Edi.UWP.Helpers.WrapperBase&lt;T&gt;
 
 Edi.UWP.Helpers.SelectorWrapper&lt;T&gt; : WrapperBase&lt;T&gt;, INotifyPropertyChanged
 
 ### Other Utility Functions
-
-##### Copy string to ClipBoard
-
+--------------------
+#### Copy string to ClipBoard
 <pre>
 Edi.UWP.Helpers.CopyToClipBoard("Hello");
 </pre>
 
-##### Check if device is connected to the Internet
-
+#### Check if device is connected to the Internet
 <pre>
 bool isConnected = Edi.UWP.Helpers.Utils.HasInternetConnection();
 if (!isConnected)
@@ -202,8 +202,7 @@ if (!isConnected)
 }
 </pre>
 
-##### Save InkCanvas strokes to .ink File
-
+#### Save InkCanvas strokes to .ink File
 <pre>
 public InkCanvas InkCanvas { get; set; }
 
@@ -212,16 +211,14 @@ public InkOperator(InkCanvas ink)
     InkCanvas = ink;
 }
 
-public async Task<bool> SaveToInkFile(PickerLocationId location)
+public async Task&lt;bool&gy; SaveToInkFile(PickerLocationId location)
 {
     var response = await Edi.UWP.Helpers.Utils.SaveToInkFile(InkCanvas, location);
     return response.IsSuccess;
 }
-
 </pre>
 
-##### Load strokes from .ink file to InkCanvas
-
+#### Load strokes from .ink file to InkCanvas
 <pre>
 public async Task LoadInkFile(PickerLocationId location)
 {
@@ -229,17 +226,16 @@ public async Task LoadInkFile(PickerLocationId location)
 }
 </pre>
 
-##### Convert ImageObject to Byte Array
+#### Convert ImageObject to Byte Array
 
 // TODO
 
-##### Get Current App Version
-
+#### Get Current App Version
 <pre>
 public string Version => Edi.UWP.Helpers.Utils.GetAppVersion();
 </pre>
 
-##### Get Current App Logo Image Uri
+#### Get Current App Logo Image Uri
 
 <pre>
 public Uri Logo => Edi.UWP.Helpers.Utils.GetAppLogoUri();
@@ -247,25 +243,23 @@ public Uri Logo => Edi.UWP.Helpers.Utils.GetAppLogoUri();
 &lt;Image Source=&quot;{Binding Logo}&quot; Stretch=&quot;None&quot; /&gt;
 </pre>
 
-
-##### Get Current App Display Name
-
+#### Get Current App Display Name
 <pre>
 public string DisplayName => Edi.UWP.Helpers.Utils.GetAppDisplayName();
 </pre>
 
-##### Get Current App Publisher Name
-
+#### Get Current App Publisher Name
 <pre>
 public string Publisher => Edi.UWP.Helpers.Utils.GetAppPublisher();
 </pre>
 
 ### Extension Methods
+---------------------
 
 // TODO
 
 ### Tricks
-
+---------------------
 Set Title Bar to System Accent Theme color:
 
 <pre>
