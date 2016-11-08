@@ -200,7 +200,7 @@ public InkOperator(InkCanvas ink)
     InkCanvas = ink;
 }
 
-public async Task&lt;bool&gy; SaveToInkFile(PickerLocationId location)
+public async Task&lt;bool&gt; SaveToInkFile(PickerLocationId location)
 {
     var response = await Edi.UWP.Helpers.Utils.SaveToInkFile(InkCanvas, location);
     return response.IsSuccess;
