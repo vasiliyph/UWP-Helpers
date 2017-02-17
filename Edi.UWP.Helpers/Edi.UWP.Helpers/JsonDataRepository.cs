@@ -5,6 +5,10 @@ using Windows.Storage;
 
 namespace Edi.UWP.Helpers
 {
+    /// <summary>
+    /// Store and Retrive data from json file
+    /// </summary>
+    /// <typeparam name="T">Data Model Type</typeparam>
     public class JsonDataRepository<T> where T : class
     {
         /// <summary>
