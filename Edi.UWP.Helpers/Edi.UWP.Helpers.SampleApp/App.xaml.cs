@@ -104,20 +104,26 @@ namespace Edi.UWP.Helpers.SampleApp
 
                 Edi.UWP.Helpers.UI.SetWindowLaunchSize(800, 480);
 
+                var accentColor = Edi.UWP.Helpers.UI.GetAccentColor();
+                var btnHoverColor = Color.FromArgb(128,
+                    (byte)(accentColor.R + 30),
+                    (byte)(accentColor.G + 30),
+                    (byte)(accentColor.B + 30));
+
                 Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
-                Color.FromArgb(255, 0, 114, 188),
+                accentColor,
                 Colors.White,
                 Colors.LightGray,
                 Colors.Gray);
 
                 Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
-                Color.FromArgb(255, 0, 114, 188), Colors.White,
-                Color.FromArgb(255, 51, 148, 208), Colors.White,
-                Color.FromArgb(255, 0, 114, 188), Colors.White,
-                Colors.LightGray, Colors.Gray);
+                    accentColor, Colors.White,
+                    btnHoverColor, Colors.White,
+                    accentColor, Colors.White,
+                    Colors.LightGray, Colors.Gray);
 
 
-                Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
+                Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(accentColor, Colors.White);
             }
 
             if (rootFrame.Content == null)
