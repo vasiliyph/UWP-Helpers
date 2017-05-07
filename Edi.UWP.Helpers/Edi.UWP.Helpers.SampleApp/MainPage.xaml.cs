@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Edi.UWP.Helpers.Extensions;
 
 namespace Edi.UWP.Helpers.SampleApp
 {
@@ -33,6 +34,7 @@ namespace Edi.UWP.Helpers.SampleApp
 
         private void AppBarButtonAbout_OnClick(object sender, RoutedEventArgs e)
         {
+
         }
 
         private async void BtnSaveInk_OnClick(object sender, RoutedEventArgs e)
@@ -42,13 +44,33 @@ namespace Edi.UWP.Helpers.SampleApp
 
         private async void BtnLoadBitmap_OnClick(object sender, RoutedEventArgs e)
         {
-            LoadBitMapTarget.Source = await Edi.UWP.Helpers.BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
+            LoadBitMapTarget.Source = await BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
         }
 
         private async void BtnSavePng_OnClick(object sender, RoutedEventArgs e)
         {
-            var bitmap = await Edi.UWP.Helpers.BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
+            var bitmap = await BitmapExtensions.LoadWriteableBitmap("Assets/66090-106.jpg");
             await bitmap.SaveToPngImage(PickerLocationId.PicturesLibrary, "example-image");
+        }
+
+        private async void BtnHideWindowsMobileStatusBar_OnClick(object sender, RoutedEventArgs e)
+        {
+            await Edi.UWP.Helpers.UI.HideWindowsMobileStatusBar();
+        }
+
+        private async void BtnShowWindowsMobileStatusBar_OnClick(object sender, RoutedEventArgs e)
+        {
+            await Edi.UWP.Helpers.UI.ShowWindowsMobileStatusBar();
+        }
+
+        private void BtnGetHeight_OnClick(object sender, RoutedEventArgs e)
+        {
+            TxtHW.Text = Edi.UWP.Helpers.UI.GetScreenHeight().ToString();
+        }
+
+        private void BtnGetWidth_OnClick(object sender, RoutedEventArgs e)
+        {
+            TxtHW.Text = Edi.UWP.Helpers.UI.GetScreenWidth().ToString();
         }
     }
 }

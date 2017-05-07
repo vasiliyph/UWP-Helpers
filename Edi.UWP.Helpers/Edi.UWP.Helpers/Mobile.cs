@@ -39,6 +39,18 @@ namespace Edi.UWP.Helpers
         }
 
         /// <summary>
+        /// Show System Status Bar on Phone
+        /// </summary>
+        /// <returns>Task</returns>
+        public static async Task ShowWindowsMobileStatusBar()
+        {
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                await StatusBar.GetForCurrentView().ShowAsync();
+            }
+        }
+
+        /// <summary>
         /// Press Back to Exit the App
         /// </summary>
         /// <param name="pageFrame">Frame</param>

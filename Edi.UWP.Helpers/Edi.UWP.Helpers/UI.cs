@@ -44,6 +44,25 @@ namespace Edi.UWP.Helpers
             }
         }
 
+        public static void SetTitlebarToSystemAccentColor()
+        {
+            var accentColor = Edi.UWP.Helpers.UI.GetAccentColor();
+            var btnHoverColor = Color.FromArgb(128,
+                (byte)(accentColor.R + 30),
+                (byte)(accentColor.G + 30),
+                (byte)(accentColor.B + 30));
+            Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
+                accentColor,
+                Colors.White,
+                Colors.LightGray,
+                Colors.Gray);
+            Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
+                accentColor, Colors.White,
+                btnHoverColor, Colors.White,
+                accentColor, Colors.White,
+                Colors.LightGray, Colors.Gray);
+        }
+
         /// <summary>
         /// Set App Window Preferred Launch View Size
         /// </summary>
@@ -198,6 +217,11 @@ namespace Edi.UWP.Helpers
         public static async Task HideWindowsMobileStatusBar()
         {
             await Mobile.HideWindowsMobileStatusBar();
+        }
+
+        public static async Task ShowWindowsMobileStatusBar()
+        {
+            await Mobile.ShowWindowsMobileStatusBar();
         }
     }
 }

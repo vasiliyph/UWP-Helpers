@@ -19,7 +19,7 @@
             <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot Title="Edi.UWP.Helpers Samples">
             <PivotItem Header="Tasks">
@@ -31,7 +31,7 @@
                     <Button Content="Show Email Compose App" Command="{Binding CommandShowEmailCompose}" />
 
                     <Border Height="1" Background="#EEE" Margin="0,15" />
-                    
+
                     <TextBlock Text="Store Review Task (don't work for this example app because it won't be published to store)" TextWrapping="Wrap" Margin="0,0,0,5" />
                     <Button Content="Show Store Review" Command="{Binding CommandReview}" />
 
@@ -40,7 +40,18 @@
                     <TextBlock Text="Open Website Task" Margin="0,0,0,5" />
                     <Button Content="Open http://edi.wang" Command="{Binding CommandOpenWebsite}" />
 
-                    
+
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="UI">
+                <StackPanel>
+                    <TextBlock Text="Windows Mobile Status Bar" Margin="0,0,0,5" />
+                    <Button x:Name="BtnHideWindowsMobileStatusBar" Content="Hide System Status Bar" Click="BtnHideWindowsMobileStatusBar_OnClick" Margin="0,0,0,5" />
+                    <Button x:Name="BtnShowWindowsMobileStatusBar" Content="Show System Status Bar" Click="BtnShowWindowsMobileStatusBar_OnClick" />
+                    <TextBlock Text="Screen Height and Width" Margin="0,20,0,5" />
+                    <Button x:Name="BtnGetHeight" Content="Get Height" Margin="0,0,0,5" Click="BtnGetHeight_OnClick" />
+                    <Button x:Name="BtnGetWidth" Content="Get Width" Margin="0,0,0,5" Click="BtnGetWidth_OnClick" />
+                    <TextBlock x:Name="TxtHW" />
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Exception">
@@ -83,7 +94,7 @@
                         <Border BorderBrush="#CCC" BorderThickness="1" Height="302" Width="302" HorizontalAlignment="Left">
                             <InkCanvas x:Name="InkDefault" Height="300" Width="300" />
                         </Border>
-                        
+
                         <Button x:Name="BtnSaveInk" Content="Save to .ink File" Click="BtnSaveInk_OnClick" />
 
                         <TextBlock Text="Get App Version" />
@@ -102,7 +113,7 @@
                     <Button x:Name="BtnLoadBitmap" Content="LoadWriteableBitmap" Margin="0,10,0,10" Click="BtnLoadBitmap_OnClick" />
                     <Button x:Name="BtnSavePng" Content="Save to PNG" Click="BtnSavePng_OnClick" />
                 </StackPanel>
-                
+
             </PivotItem>
         </Pivot>
     </Grid>
