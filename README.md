@@ -35,28 +35,6 @@ using (var client = new HttpClient())
 }
 ```
 
-### Windows Phone System Status Bar
-
-##### Set Background and Foreground Color
-
-```
-Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
-```
-
-#### Hide Status Bar
-
-Hide System Status Bar on Phone, make App full screen
-
-```
-Edi.UWP.Helpers.HideWindowsMobileStatusBar();
-```
-
-##### Show Text and Progress on Status Bar
-
-```
-Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
-```
-
 ### UI Helpers
 
 ##### Set App Window Launch Size
@@ -82,6 +60,25 @@ void ApplyColorToTitleBar()
         Color.FromArgb(255, 0, 114, 188), Colors.White, 
         Colors.LightGray, Colors.Gray);
 }
+```
+##### Set Status Bar Color (Windows 10 Mobile)
+
+```
+Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
+```
+
+#### Hide Status Bar
+
+Hide System Status Bar on Phone, make App full screen
+
+```
+Edi.UWP.Helpers.HideWindowsMobileStatusBar();
+```
+
+##### Show Text and Progress on Status Bar
+
+```
+Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
 ```
 
 ### Value Converters
