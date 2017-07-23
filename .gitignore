@@ -211,3 +211,8 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /Edi.UWP.Helpers/Edi.UWP.Helpers.SampleApp
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/Upload/x64.txt
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/Upload/x86.txt
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/x86.txt
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/_pkginfo.txt
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/x64.txt

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
-  <Identity Name="F86701FF-6D97-4B6D-94D8-7E3B33DF11A5" Publisher="CN=Edi.Wang" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="F86701FF-6D97-4B6D-94D8-7E3B33DF11A5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="58027.NuGetSearch" Publisher="CN=DB299AFD-CD90-4B49-8407-33F11AF0C784" Version="2017.7.1.0" />
+  <mp:PhoneIdentity PhoneProductId="41d15c15-ae32-41b7-bc43-6f8b551faea7" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Edi.UWP.Helpers.Sample</DisplayName>
-    <PublisherDisplayName>Edi.Wang</PublisherDisplayName>
+    <DisplayName>Edi.UWP.Helpers Sample App</DisplayName>
+    <PublisherDisplayName>Edi Wang</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Edi.UWP.Helpers.Sample.App">
-      <uap:VisualElements DisplayName="Edi.UWP.Helpers.Sample" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Edi.UWP.Helpers.Sample" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Edi.UWP.Helpers Sample App" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Edi.UWP.Helpers.Sample" BackgroundColor="transparent">
         <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Edi.UWP.Helpers Sample" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
