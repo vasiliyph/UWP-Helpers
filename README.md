@@ -4,6 +4,8 @@ Helpers and Utils for Windows 10 UWP Projects.
 This document is not always keep updated with the library. 
 Please check sample app also (also not always updated)
 
+[Download Sample App from Windows Store](https://www.microsoft.com/en-US/store/apps/ediuwphelpers-sample-app/9wzdncrdxf3z)
+
 ## Install
 
 Install by NuGet:
@@ -12,11 +14,6 @@ Install by NuGet:
 PM> Install-Package Edi.UWP.Helpers
 ```
 
-## Sample App
-
-[Download from Windows Store](https://www.microsoft.com/en-US/store/apps/ediuwphelpers-sample-app/9wzdncrdxf3z)
-
----
 ## Features
 
 ### Chinese Character Encoding
@@ -35,29 +32,7 @@ using (var client = new HttpClient())
 }
 ```
 
-### Windows Phone System Status Bar
-
-##### Set Background and Foreground Color
-
-```
-Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
-```
-
-#### Hide Status Bar
-
-Hide System Status Bar on Phone, make App full screen
-
-```
-Edi.UWP.Helpers.HideWindowsMobileStatusBar();
-```
-
-##### Show Text and Progress on Status Bar
-
-```
-Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
-```
-
-### UI Helpers
+### UI
 
 ##### Set App Window Launch Size
 
@@ -82,6 +57,25 @@ void ApplyColorToTitleBar()
         Color.FromArgb(255, 0, 114, 188), Colors.White, 
         Colors.LightGray, Colors.Gray);
 }
+```
+##### Set Status Bar Color (Windows 10 Mobile)
+
+```
+Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
+```
+
+#### Hide Status Bar
+
+Hide System Status Bar on Phone, make App full screen
+
+```
+Edi.UWP.Helpers.HideWindowsMobileStatusBar();
+```
+
+##### Show Text and Progress on Status Bar
+
+```
+Edi.UWP.Helpers.ShowSystemTrayAsync(Color backgroundColor, Color foregroundColor, double opacity = 1, string text = "", bool isIndeterminate = false, bool showProgress = false);
 ```
 
 ### Value Converters
@@ -134,15 +128,20 @@ private async void BtnReview_OnClick(object sender, RoutedEventArgs e)
 
 ##### Open Email Composing
 
+```
+private async Task ShowEmailCompse()
+{
+    await Tasks.OpenEmailComposeAsync(EmailTo, EmailSubject, EmailBody);
+}
+```
+
 ### Selector Wrapper
 
-// TODO
+- Edi.UWP.Helpers.WrapperBase&lt;T&gt;
 
-Edi.UWP.Helpers.WrapperBase&lt;T&gt;
+- Edi.UWP.Helpers.SelectorWrapper&lt;T&gt; : WrapperBase&lt;T&gt;, INotifyPropertyChanged
 
-Edi.UWP.Helpers.SelectorWrapper&lt;T&gt; : WrapperBase&lt;T&gt;, INotifyPropertyChanged
-
-### Other Utility Functions
+### Utility
 
 ##### Copy string to ClipBoard
 
@@ -196,4 +195,9 @@ public string Publisher => Edi.UWP.Helpers.Utils.GetAppPublisher();
 
 ### Extension Methods
 
-// TODO
+#### CollectionExtensions
+
+*ToObservableCollection*
+```
+someIEnumerableObject.ToObservableCollection();
+```
