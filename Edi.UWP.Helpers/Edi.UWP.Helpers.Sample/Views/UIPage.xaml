@@ -12,7 +12,7 @@
             <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
     </Page.Resources>
-    
+
     <Grid
         x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightMargin}">
@@ -31,6 +31,9 @@
             Grid.Row="1">
             <ScrollViewer>
                 <StackPanel>
+                    <TextBlock Text="Accent Color" Margin="0,0,0,5" />
+                    <Button Content="Get Accent Color" Command="{Binding CommandGetAccentColor}" Margin="0,0,0,5" />
+                    <Border Background="{Binding AccentColor}" Height="40" Width="100" Margin="0,0,0,10" />
                     <TextBlock Text="Windows Mobile Status Bar" Margin="0,0,0,5" />
                     <Button x:Name="BtnHideWindowsMobileStatusBar" Content="Hide System Status Bar" Click="BtnHideWindowsMobileStatusBar_OnClick" Margin="0,0,0,5" />
                     <Button x:Name="BtnShowWindowsMobileStatusBar" Content="Show System Status Bar" Click="BtnShowWindowsMobileStatusBar_OnClick" />
