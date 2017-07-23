@@ -16,15 +16,15 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private bool _isLightThemeEnabled;
         public bool IsLightThemeEnabled
         {
-            get { return _isLightThemeEnabled; }
-            set { Set(ref _isLightThemeEnabled, value); }
+            get => _isLightThemeEnabled;
+            set => Set(ref _isLightThemeEnabled, value);
         }
 
         private string _appDescription;
         public string AppDescription
         {
-            get { return _appDescription; }
-            set { Set(ref _appDescription, value); }
+            get => _appDescription;
+            set => Set(ref _appDescription, value);
         }
 
         public ICommand SwitchThemeCommand { get; private set; }

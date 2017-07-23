@@ -21,10 +21,8 @@
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            Grid.Row="1" >
+            <Button x:Name="BtnMakeException" Content="Make Exception" Command="{Binding CommandMakeException}" VerticalAlignment="Top" />
         </Grid>
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

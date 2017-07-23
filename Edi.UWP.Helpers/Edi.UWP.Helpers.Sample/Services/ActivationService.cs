@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Edi.UWP.Helpers.Sample.Activation;
 
 using Windows.ApplicationModel.Activation;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -20,14 +21,8 @@ namespace Edi.UWP.Helpers.Sample.Services
         private readonly UIElement _shell;
         private readonly Type _defaultNavItem;
     
-        private NavigationServiceEx NavigationService
-        {
-            get
-            {
-                return Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
-            }
-        }
-        
+        private NavigationServiceEx NavigationService => Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
+
 
         public ActivationService(App app, Type defaultNavItem, UIElement shell = null)
         {
@@ -47,6 +42,27 @@ namespace Edi.UWP.Helpers.Sample.Services
                 // just ensure that the window is active
                 if (Window.Current.Content == null)
                 {
+                    var accentColor = Edi.UWP.Helpers.UI.GetAccentColor();
+                    var btnHoverColor = Color.FromArgb(128,
+                        (byte)(accentColor.R + 30),
+                        (byte)(accentColor.G + 30),
+                        (byte)(accentColor.B + 30));
+
+                    Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
+                        accentColor,
+                        Colors.White,
+                        Colors.LightGray,
+                        Colors.Gray);
+
+                    Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
+                        accentColor, Colors.White,
+                        btnHoverColor, Colors.White,
+                        accentColor, Colors.White,
+                        Colors.LightGray, Colors.Gray);
+
+
+                    Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(accentColor, Colors.White);
+
                     // Create a Frame to act as the navigation context and navigate to the first page
                     Window.Current.Content = _shell;
                     NavigationService.Frame.NavigationFailed += (sender, e) =>

@@ -6,10 +6,7 @@ namespace Edi.UWP.Helpers.Sample.Views
 {
     public sealed partial class ConvertersPage : Page
     {
-        private ConvertersViewModel ViewModel
-        {
-            get { return DataContext as ConvertersViewModel; }
-        }
+        private ConvertersViewModel ViewModel => DataContext as ConvertersViewModel;
 
         public ConvertersPage()
         {

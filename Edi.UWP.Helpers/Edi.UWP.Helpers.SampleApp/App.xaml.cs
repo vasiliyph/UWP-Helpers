@@ -38,31 +38,11 @@ namespace Edi.UWP.Helpers.SampleApp
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            this.UnhandledException += OnUnhandledException;
+            
         }
 
-        private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
-        {
-            e.Handled = true;
-            await new MessageDialog("Application Unhandled Exception:\r\n" + e.Exception.Message, "Error :(")
-                .ShowAsync();
-        }
+       
 
-        /// <summary>
-        /// Should be called from OnActivated and OnLaunched
-        /// </summary>
-        private void RegisterExceptionHandlingSynchronizationContext()
-        {
-            ExceptionHandlingSynchronizationContext
-                .Register().UnhandledException += SynchronizationContext_UnhandledException;
-        }
-
-        private async void SynchronizationContext_UnhandledException(object sender, Edi.UWP.Helpers.UnhandledExceptionEventArgs e)
-        {
-            e.Handled = true;
-            await new MessageDialog("Synchronization Context Unhandled Exception:\r\n" + e.Exception.Message, "Error :(")
-                .ShowAsync();
-        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -71,7 +51,7 @@ namespace Edi.UWP.Helpers.SampleApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            RegisterExceptionHandlingSynchronizationContext();
+            
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -101,29 +81,6 @@ namespace Edi.UWP.Helpers.SampleApp
                     rootFrame.CanGoBack ?
                     AppViewBackButtonVisibility.Visible :
                     AppViewBackButtonVisibility.Collapsed;
-
-                Edi.UWP.Helpers.UI.SetWindowLaunchSize(800, 480);
-
-                var accentColor = Edi.UWP.Helpers.UI.GetAccentColor();
-                var btnHoverColor = Color.FromArgb(128,
-                    (byte)(accentColor.R + 30),
-                    (byte)(accentColor.G + 30),
-                    (byte)(accentColor.B + 30));
-
-                Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
-                accentColor,
-                Colors.White,
-                Colors.LightGray,
-                Colors.Gray);
-
-                Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
-                    accentColor, Colors.White,
-                    btnHoverColor, Colors.White,
-                    accentColor, Colors.White,
-                    Colors.LightGray, Colors.Gray);
-
-
-                Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(accentColor, Colors.White);
             }
 
             if (rootFrame.Content == null)
@@ -166,8 +123,6 @@ namespace Edi.UWP.Helpers.SampleApp
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
-            RegisterExceptionHandlingSynchronizationContext();
-
             base.OnActivated(args);
         }
 

@@ -21,10 +21,14 @@
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            Grid.Row="1">
+            <ScrollViewer>
+                <StackPanel>
+                    <Image x:Name="LoadBitMapTarget" Width="360" MinHeight="100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Button x:Name="BtnLoadBitmap" Content="LoadWriteableBitmap" Margin="0,10,0,10" Click="BtnLoadBitmap_OnClick" />
+                    <Button x:Name="BtnSavePng" Content="Save to PNG" Click="BtnSavePng_OnClick" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

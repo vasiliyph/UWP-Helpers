@@ -21,10 +21,55 @@
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            Grid.Row="1">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Copy To ClipBoard" />
+                    <TextBox Text="{Binding TxtToCopy, Mode=TwoWay}" />
+                    <Button Content="Copy" Command="{Binding CommandCopy}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Has Internet Connection" />
+                    <TextBlock Text="{Binding HasInternetConnection}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Make Phone Call (Require Windows 10 Mobile)" TextWrapping="Wrap" />
+                    <TextBox Header="Display Name" Text="{Binding DisplayName, Mode=TwoWay}" />
+                    <TextBox Header="Phone Number" Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                    <Button Content="Call" Command="{Binding CommandCall}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Get Xml String" />
+                    <Button Content="Read Assets\test.xml" Margin="0,5,0,0" Command="{Binding CommandReadXml}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding XmlResult}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <!--<TextBlock Text="GetResource" />
+                    <Button Content="GetResource('TestRes1')" Margin="0,5,0,0" Command="{Binding CommandGetResource}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding ResOutput}" />-->
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Save To Ink File" />
+                    <Border BorderBrush="#CCC" BorderThickness="1" Height="302" Width="302" HorizontalAlignment="Left">
+                        <InkCanvas x:Name="InkDefault" Height="300" Width="300" />
+                    </Border>
+
+                    <Button x:Name="BtnSaveInk" Content="Save to .ink File" Click="BtnSaveInk_OnClick" />
+
+                    <TextBlock Text="Get App Version" />
+                    <TextBlock Text="{Binding AppVersion}" />
+                    <Button Content="Get App Version" Margin="0,5,0,0" Command="{Binding CommandGetAppVersion}" />
+
+                    <TextBlock Text="Get App Display Name" />
+                    <TextBlock Text="{Binding AppDisplayName}" />
+                    <Button Content="Get App Display Name" Margin="0,5,0,0" Command="{Binding CommandGetAppDisplayName}" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

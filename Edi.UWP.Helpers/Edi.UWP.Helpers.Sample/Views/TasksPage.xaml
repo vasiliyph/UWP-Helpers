@@ -6,6 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding TasksViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+    </Page.Resources>
+    
     <Grid
         x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightMargin}">
@@ -21,10 +28,26 @@
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            Grid.Row="1">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Email Compose Task" Margin="0,0,0,5" />
+                    <TextBox Text="{Binding EmailTo, Mode=TwoWay}" PlaceholderText="Email Address" />
+                    <TextBox Text="{Binding EmailSubject, Mode=TwoWay}" PlaceholderText="Subject" />
+                    <TextBox Text="{Binding EmailBody, Mode=TwoWay}" PlaceholderText="Body Content" />
+                    <Button Content="Show Email Compose App" Command="{Binding CommandShowEmailCompose}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Store Review Task (don't work for this example app because it won't be published to store)" TextWrapping="Wrap" Margin="0,0,0,5" />
+                    <Button Content="Show Store Review" Command="{Binding CommandReview}" />
+
+                    <Border Height="1" Background="#EEE" Margin="0,15" />
+
+                    <TextBlock Text="Open Website Task" Margin="0,0,0,5" />
+                    <Button Content="Open http://edi.wang" Command="{Binding CommandOpenWebsite}" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

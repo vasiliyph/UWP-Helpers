@@ -14,23 +14,20 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private Visibility _selectedVis = Visibility.Collapsed;
         public Visibility SelectedVis
         {
-            get { return _selectedVis; }
-            set { Set(ref _selectedVis, value); }
+            get => _selectedVis;
+            set => Set(ref _selectedVis, value);
         }
 
         private SolidColorBrush _selectedForeground = null;
         public SolidColorBrush SelectedForeground
         {
-            get
-            {
-                return _selectedForeground ?? (_selectedForeground = GetStandardTextColorBrush());
-            }
-            set { Set(ref _selectedForeground, value); }
+            get => _selectedForeground ?? (_selectedForeground = GetStandardTextColorBrush());
+            set => Set(ref _selectedForeground, value);
         }
 
         public string Label { get; set; }
         public Symbol Symbol { get; set; }
-        public char SymbolAsChar { get { return (char)Symbol; } }
+        public char SymbolAsChar => (char)Symbol;
         public string ViewModelName { get; set; }
 
         private IconElement _iconElement = null;
@@ -63,7 +60,7 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
 
         public bool IsSelected
         {
-            get { return _isSelected; }
+            get => _isSelected;
             set
             {
                 Set(ref _isSelected, value);

@@ -6,6 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding UIViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+    </Page.Resources>
+    
     <Grid
         x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightMargin}">
@@ -21,10 +28,18 @@
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            Grid.Row="1">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Windows Mobile Status Bar" Margin="0,0,0,5" />
+                    <Button x:Name="BtnHideWindowsMobileStatusBar" Content="Hide System Status Bar" Click="BtnHideWindowsMobileStatusBar_OnClick" Margin="0,0,0,5" />
+                    <Button x:Name="BtnShowWindowsMobileStatusBar" Content="Show System Status Bar" Click="BtnShowWindowsMobileStatusBar_OnClick" />
+                    <TextBlock Text="Screen Height and Width" Margin="0,20,0,5" />
+                    <Button x:Name="BtnGetHeight" Content="Get Height" Margin="0,0,0,5" Click="BtnGetHeight_OnClick" />
+                    <Button x:Name="BtnGetWidth" Content="Get Width" Margin="0,0,0,5" Click="BtnGetWidth_OnClick" />
+                    <TextBlock x:Name="TxtHW" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

@@ -24,10 +24,7 @@ namespace Edi.UWP.Helpers.Sample.Services
 
                 return _frame;
             }
-            set
-            {
-                _frame = value;
-            }
+            set => _frame = value;
         }
 
         public bool CanGoBack => Frame.CanGoBack;

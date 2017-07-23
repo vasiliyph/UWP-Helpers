@@ -6,10 +6,7 @@ namespace Edi.UWP.Helpers.Sample.Views
 {
     public sealed partial class TasksPage : Page
     {
-        private TasksViewModel ViewModel
-        {
-            get { return DataContext as TasksViewModel; }
-        }
+        private TasksViewModel ViewModel => DataContext as TasksViewModel;
 
         public TasksPage()
         {

@@ -6,10 +6,7 @@ namespace Edi.UWP.Helpers.Sample.Views
 {
     public sealed partial class ExceptionHandlingPage : Page
     {
-        private ExceptionHandlingViewModel ViewModel
-        {
-            get { return DataContext as ExceptionHandlingViewModel; }
-        }
+        private ExceptionHandlingViewModel ViewModel => DataContext as ExceptionHandlingViewModel;
 
         public ExceptionHandlingPage()
         {

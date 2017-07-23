@@ -26,26 +26,20 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private const double WideStateMinWindowWidth = 640;
         private const double PanoramicStateMinWindowWidth = 1024;
 
-        public NavigationServiceEx NavigationService
-        {
-            get
-            {
-                return Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
-            }
-        }
+        public NavigationServiceEx NavigationService => Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
 
         private bool _isPaneOpen;
         public bool IsPaneOpen
         {
-            get { return _isPaneOpen; }
-            set { Set(ref _isPaneOpen, value); }
+            get => _isPaneOpen;
+            set => Set(ref _isPaneOpen, value);
         }
 
         private SplitViewDisplayMode _displayMode = SplitViewDisplayMode.CompactInline;
         public SplitViewDisplayMode DisplayMode
         {
-            get { return _displayMode; }
-            set { Set(ref _displayMode, value); }
+            get => _displayMode;
+            set => Set(ref _displayMode, value);
         }
 
         private object _lastSelectedItem;
@@ -53,15 +47,15 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private ObservableCollection<ShellNavigationItem> _primaryItems = new ObservableCollection<ShellNavigationItem>();
         public ObservableCollection<ShellNavigationItem> PrimaryItems
         {
-            get { return _primaryItems; }
-            set { Set(ref _primaryItems, value); }
+            get => _primaryItems;
+            set => Set(ref _primaryItems, value);
         }
 
         private ObservableCollection<ShellNavigationItem> _secondaryItems = new ObservableCollection<ShellNavigationItem>();
         public ObservableCollection<ShellNavigationItem> SecondaryItems
         {
-            get { return _secondaryItems; }
-            set { Set(ref _secondaryItems, value); }
+            get => _secondaryItems;
+            set => Set(ref _secondaryItems, value);
         }
 
         private ICommand _openPaneCommand;
