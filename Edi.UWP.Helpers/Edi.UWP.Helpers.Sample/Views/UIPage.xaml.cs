@@ -13,25 +13,5 @@ namespace Edi.UWP.Helpers.Sample.Views
         {
             InitializeComponent();
         }
-
-        private async void BtnHideWindowsMobileStatusBar_OnClick(object sender, RoutedEventArgs e)
-        {
-            await Edi.UWP.Helpers.UI.HideWindowsMobileStatusBar();
-        }
-
-        private async void BtnShowWindowsMobileStatusBar_OnClick(object sender, RoutedEventArgs e)
-        {
-            await Edi.UWP.Helpers.UI.ShowWindowsMobileStatusBar();
-        }
-
-        private void BtnGetHeight_OnClick(object sender, RoutedEventArgs e)
-        {
-            TxtHW.Text = Edi.UWP.Helpers.UI.GetScreenHeight().ToString();
-        }
-
-        private void BtnGetWidth_OnClick(object sender, RoutedEventArgs e)
-        {
-            TxtHW.Text = Edi.UWP.Helpers.UI.GetScreenWidth().ToString();
-        }
     }
 }

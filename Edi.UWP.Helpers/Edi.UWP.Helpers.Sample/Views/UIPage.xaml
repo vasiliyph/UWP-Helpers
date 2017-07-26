@@ -35,12 +35,12 @@
                     <Button Content="Get Accent Color" Command="{Binding CommandGetAccentColor}" Margin="0,0,0,5" />
                     <Border Background="{Binding AccentColor}" Height="40" Width="100" Margin="0,0,0,10" />
                     <TextBlock Text="Windows Mobile Status Bar" Margin="0,0,0,5" />
-                    <Button x:Name="BtnHideWindowsMobileStatusBar" Content="Hide System Status Bar" Click="BtnHideWindowsMobileStatusBar_OnClick" Margin="0,0,0,5" />
-                    <Button x:Name="BtnShowWindowsMobileStatusBar" Content="Show System Status Bar" Click="BtnShowWindowsMobileStatusBar_OnClick" />
+                    <Button x:Name="BtnHideWindowsMobileStatusBar" Content="Hide System Status Bar" Command="{Binding CommandHideWindowsMobileStatusBar}" Margin="0,0,0,5" />
+                    <Button x:Name="BtnShowWindowsMobileStatusBar" Content="Show System Status Bar" Command="{Binding CommandShowWindowsMobileStatusBar}" />
                     <TextBlock Text="Screen Height and Width" Margin="0,20,0,5" />
-                    <Button x:Name="BtnGetHeight" Content="Get Height" Margin="0,0,0,5" Click="BtnGetHeight_OnClick" />
-                    <Button x:Name="BtnGetWidth" Content="Get Width" Margin="0,0,0,5" Click="BtnGetWidth_OnClick" />
-                    <TextBlock x:Name="TxtHW" />
+                    <Button x:Name="BtnGetHeight" Content="Get Height" Margin="0,0,0,5" Command="{Binding CommandGetScreenHeight}" />
+                    <Button x:Name="BtnGetWidth" Content="Get Width" Margin="0,0,0,5" Command="{Binding CommandGetScreenWidth}" />
+                    <TextBlock x:Name="TxtHW" Text="{Binding HWText}" />
                 </StackPanel>
             </ScrollViewer>
         </Grid>
