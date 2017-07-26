@@ -18,45 +18,48 @@ namespace Edi.UWP.Helpers
         /// Get current device screen height in pixel
         /// </summary>
         /// <returns></returns>
-        public static int GetScreenHeight()
+        public static double GetScreenHeight()
         {
-            var rect = PointerDevice.GetPointerDevices().Last().ScreenRect;
-            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            return (int)(rect.Height * scale);
+            var displayInformation = DisplayInformation.GetForCurrentView();
+            return displayInformation.ScreenHeightInRawPixels;
         }
 
-        public static int GetScreenWidth()
+        /// <summary>
+        /// Get current device screen width in pixel
+        /// </summary>
+        /// <returns></returns>
+        public static double GetScreenWidth()
         {
-            var rect = PointerDevice.GetPointerDevices().Last().ScreenRect;
-            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            return (int)(rect.Width * scale);
+            var displayInformation = DisplayInformation.GetForCurrentView();
+            return displayInformation.ScreenWidthInRawPixels;
         }
 
+        /// <summary>
+        /// Get System Accent Color
+        /// </summary>
+        /// <returns></returns>
         public static Color GetAccentColor()
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
                 return (Color)Application.Current.Resources["SystemAccentColor"];
             }
-            else
-            {
-                return new UISettings().GetColorValue(UIColorType.Accent);
-            }
+            return new UISettings().GetColorValue(UIColorType.Accent);
         }
 
         public static void SetTitlebarToSystemAccentColor()
         {
-            var accentColor = Edi.UWP.Helpers.UI.GetAccentColor();
+            var accentColor = GetAccentColor();
             var btnHoverColor = Color.FromArgb(128,
                 (byte)(accentColor.R + 30),
                 (byte)(accentColor.G + 30),
                 (byte)(accentColor.B + 30));
-            Edi.UWP.Helpers.UI.ApplyColorToTitleBar(
+            ApplyColorToTitleBar(
                 accentColor,
                 Colors.White,
                 Colors.LightGray,
                 Colors.Gray);
-            Edi.UWP.Helpers.UI.ApplyColorToTitleButton(
+            ApplyColorToTitleButton(
                 accentColor, Colors.White,
                 btnHoverColor, Colors.White,
                 accentColor, Colors.White,
