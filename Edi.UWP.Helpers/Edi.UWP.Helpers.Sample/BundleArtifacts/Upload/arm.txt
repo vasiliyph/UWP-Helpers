@@ -1,5 +1,5 @@
-MainPackage=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.7.1.0_ARM.appx
-SymbolPackage=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.7.1.0\Edi.UWP.Helpers.Sample_2017.7.1.0_ARM.appxsym
+MainPackage=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.7.5.0_ARM.appx
+SymbolPackage=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.7.5.0\Edi.UWP.Helpers.Sample_2017.7.5.0_ARM.appxsym
 ResourcePack=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\_scale-100.appx
 ResourcePack=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\_scale-125.appx
 ResourcePack=D:\Edi-GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\_scale-150.appx
