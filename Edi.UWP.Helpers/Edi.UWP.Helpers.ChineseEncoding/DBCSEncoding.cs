@@ -1,6 +1,9 @@
 ﻿/*
  * ****************************************************
- *     Copyright (c) Aimeast.  All rights reserved.
+ * Origin source: https://github.com/Aimeast/Encoding4Silverlight/blob/master/DBCS/DBCSEncoding.cs
+ * Copyright (c) Aimeast.  All rights reserved.
+ * 
+ * Modified by Edi Wang, Add support for WinRT and Windows 10 UWP
  * ****************************************************
  */
 
@@ -11,7 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace DBCSCodePage
+namespace Edi.UWP.Helpers.ChineseEncoding
 {
     public sealed class DBCSEncoding : Encoding
     {
