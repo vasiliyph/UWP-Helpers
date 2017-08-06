@@ -112,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.3.3</Version>
+      <Version>5.3.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gb2312.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="package.nuspec" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

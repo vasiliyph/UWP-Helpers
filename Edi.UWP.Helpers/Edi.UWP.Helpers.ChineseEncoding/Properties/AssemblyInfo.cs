@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Edi.UWP.Helpers.ChineseEncoding")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ChineseEncoding for UWP")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("edi.wang")]
 [assembly: AssemblyProduct("Edi.UWP.Helpers.ChineseEncoding")]
-[assembly: AssemblyCopyright("© 2017 edi.wang")]
+[assembly: AssemblyCopyright("© 2017 edi.wang, Aimeast")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -24,6 +24,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.14.0")]
-[assembly: AssemblyFileVersion("1.0.14.0")]
+[assembly: AssemblyVersion("2017.8.1.0")]
+[assembly: AssemblyFileVersion("2017.8.1.0")]
 [assembly: ComVisible(false)]
