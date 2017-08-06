@@ -105,6 +105,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="Key.snk" />
+    <None Include="package.nuspec" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

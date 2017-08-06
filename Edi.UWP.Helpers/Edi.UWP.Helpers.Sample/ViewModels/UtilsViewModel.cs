@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Edi.UWP.Helpers.ChineseEncoding;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 

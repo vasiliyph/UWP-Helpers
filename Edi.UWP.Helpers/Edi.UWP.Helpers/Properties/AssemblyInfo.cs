@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Edi.UWP.Helpers")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Helpers and Utils for UWP Projects")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("edi.wang")]
 [assembly: AssemblyProduct("Edi.UWP.Helpers")]
 [assembly: AssemblyCopyright("© 2017 edi.wang")]
 [assembly: AssemblyTrademark("")]

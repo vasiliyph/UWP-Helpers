@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Edi.UWP.Helpers</id>
+    <version>2017.8.1</version>
+    <title>Edi.UWP.Helpers</title>
+    <authors>Edi Wang</authors>
+    <owners>Edi Wang</owners>
+    <projectUrl>https://github.com/EdiWang/UWP-Helpers</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Helpers and Utils for UWP Projects.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>(c) 2017 edi.wang</copyright>
+    <tags>UWP</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
