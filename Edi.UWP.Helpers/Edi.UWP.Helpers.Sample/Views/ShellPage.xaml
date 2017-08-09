@@ -101,7 +101,7 @@
             ItemsSource="{x:Bind ViewModel.PrimaryItems}"
             OptionsItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
             OptionsItemsSource="{x:Bind ViewModel.SecondaryItems}"
-            PaneBackground="{ThemeResource SystemControlBackgroundAltHighBrush}"
+            PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
             PaneForeground="{ThemeResource SystemControlForegroundBaseHighBrush}"
             >
         <i:Interaction.Behaviors>

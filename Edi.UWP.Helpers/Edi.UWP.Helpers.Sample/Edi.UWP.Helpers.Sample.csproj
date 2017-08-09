@@ -235,6 +235,7 @@
     <Compile Include="Helpers\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\CodeSamples\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
