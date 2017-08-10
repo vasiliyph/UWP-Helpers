@@ -219,3 +219,6 @@ Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/x64.txt
 *.appx
 Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/arm.txt
 Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/Upload/arm.txt
+*.appx
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/arm.txt
+Edi.UWP.Helpers/Edi.UWP.Helpers.Sample/BundleArtifacts/Upload/arm.txt
