@@ -61,15 +61,7 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private ICommand _openPaneCommand;
         public ICommand OpenPaneCommand
         {
-            get
-            {
-                if (_openPaneCommand == null)
-                {
-                    _openPaneCommand = new RelayCommand(() => IsPaneOpen = !_isPaneOpen);
-                }
-
-                return _openPaneCommand;
-            }
+            get { return _openPaneCommand ?? (_openPaneCommand = new RelayCommand(() => IsPaneOpen = !_isPaneOpen)); }
         }
 
         private ICommand _itemSelected;
@@ -91,12 +83,9 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         {
             get
             {
-                if (_stateChangedCommand == null)
-                {
-                    _stateChangedCommand = new RelayCommand<Windows.UI.Xaml.VisualStateChangedEventArgs>(args => GoToState(args.NewState.Name));
-                }
-
-                return _stateChangedCommand;
+                return _stateChangedCommand ?? (_stateChangedCommand =
+                           new RelayCommand<Windows.UI.Xaml.VisualStateChangedEventArgs>(args => GoToState(args.NewState
+                               .Name)));
             }
         }
 
@@ -106,13 +95,14 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
             {
                 case PanoramicStateName:
                     DisplayMode = SplitViewDisplayMode.CompactInline;
+                    IsPaneOpen = true;
                     break;
                 case WideStateName:
                     DisplayMode = SplitViewDisplayMode.CompactInline;
-                    IsPaneOpen = false;
+                    IsPaneOpen = true;
                     break;
                 case NarrowStateName:
-                    DisplayMode = SplitViewDisplayMode.Overlay;
+                    DisplayMode = SplitViewDisplayMode.CompactInline;
                     IsPaneOpen = false;
                     break;
                 default:
@@ -177,17 +167,10 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
             if (e != null)
             {
                 var vm = NavigationService.GetNameOfRegisteredPage(e.SourcePageType);
-                var navigationItem = PrimaryItems?.FirstOrDefault(i => i.ViewModelName == vm);
-                if (navigationItem == null)
-                {
-                    navigationItem = SecondaryItems?.FirstOrDefault(i => i.ViewModelName == vm);
-                }
-
-                if (navigationItem != null)
-                {
-                    ChangeSelected(_lastSelectedItem, navigationItem);
-                    _lastSelectedItem = navigationItem;
-                }
+                var navigationItem = PrimaryItems?.FirstOrDefault(i => i.ViewModelName == vm) ?? SecondaryItems?.FirstOrDefault(i => i.ViewModelName == vm);
+                if (navigationItem == null) return;
+                ChangeSelected(_lastSelectedItem, navigationItem);
+                _lastSelectedItem = navigationItem;
             }
         }
 
