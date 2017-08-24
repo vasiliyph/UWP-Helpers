@@ -96,12 +96,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Edi.UWP.Helpers">
-      <Version>2017.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="Edi.UWP.Helpers.ChineseEncoding">
-      <Version>2017.8.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.4.0</Version>
     </PackageReference>
@@ -304,6 +298,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Edi.UWP.Helpers.ChineseEncoding\Edi.UWP.Helpers.ChineseEncoding.csproj">
+      <Project>{6c97f44e-f9bf-4f14-8023-7b8915a2df48}</Project>
+      <Name>Edi.UWP.Helpers.ChineseEncoding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Edi.UWP.Helpers\Edi.UWP.Helpers.csproj">
+      <Project>{f6f738e0-792f-42d2-aab1-b92fedcefeea}</Project>
+      <Name>Edi.UWP.Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

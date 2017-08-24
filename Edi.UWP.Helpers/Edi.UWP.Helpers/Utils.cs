@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.Networking.Connectivity;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -47,10 +48,10 @@ namespace Edi.UWP.Helpers
             return s;
         }
 
-        public static string GetResource(string key)
+        public static string GetResource(string key, ResourceContext ctx = null)
         {
             return
-                Windows.ApplicationModel.Resources.Core.ResourceManager.Current.MainResourceMap.GetValue(key).ValueAsString;
+                ResourceManager.Current.MainResourceMap.GetValue(key, ctx).ValueAsString;
         }
 
         /// <summary>
@@ -82,6 +83,31 @@ namespace Edi.UWP.Helpers
         /// <returns>Success or not</returns>
         public static async Task<Response> SaveToInkFile(InkCanvas inkCanvas, PickerLocationId location)
         {
+            var picker = new FileSavePicker
+            {
+                SuggestedStartLocation = location
+            };
+            picker.FileTypeChoices.Add("INK files", new List<string> { ".ink" });
+            var file = await picker.PickSaveFileAsync();
+            if (file == null)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = $"{nameof(file)} is null"
+                };
+            }
+            return await SaveToStorageFile(inkCanvas, file);
+        }
+
+        /// <summary>
+        /// Save InkCanvas strokes to .ink File
+        /// </summary>
+        /// <param name="inkCanvas">InkCanvas Object</param>
+        /// <param name="file">StorageFile</param>
+        /// <returns>Success or not</returns>
+        public static async Task<Response> SaveToStorageFile(InkCanvas inkCanvas, StorageFile file)
+        {
             IRandomAccessStream stream = new InMemoryRandomAccessStream();
 
             var strokes = inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
@@ -89,13 +115,6 @@ namespace Edi.UWP.Helpers
             {
                 await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
 
-                var picker = new FileSavePicker
-                {
-
-                    SuggestedStartLocation = location
-                };
-                picker.FileTypeChoices.Add("INK files", new List<string> { ".ink" });
-                var file = await picker.PickSaveFileAsync();
                 if (file == null)
                 {
                     return new Response
@@ -106,7 +125,7 @@ namespace Edi.UWP.Helpers
                 }
 
                 CachedFileManager.DeferUpdates(file);
-                var bt = await Utils.ConvertImagetoByte(stream);
+                var bt = await ConvertImagetoByte(stream);
                 await FileIO.WriteBytesAsync(file, bt);
                 await CachedFileManager.CompleteUpdatesAsync(file);
 
@@ -137,9 +156,20 @@ namespace Edi.UWP.Helpers
             var pickedFile = await picker.PickSingleFileAsync();
             if (pickedFile != null)
             {
-                var file = await pickedFile.OpenReadAsync();
-                await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(file);
+                await LoadInkFile(inkCanvas, pickedFile);
             }
+        }
+
+        /// <summary>
+        /// Load strokes from .ink file to InkCanvas
+        /// </summary>
+        /// <param name="inkCanvas">InkCanvas Object</param>
+        /// <param name="sFile">StorageFile</param>
+        /// <returns>Task</returns>
+        public static async Task LoadInkFile(InkCanvas inkCanvas, StorageFile sFile)
+        {
+            var file = await sFile.OpenReadAsync();
+            await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(file);
         }
 
         /// <summary>
@@ -176,7 +206,7 @@ namespace Edi.UWP.Helpers
         /// <returns>App Version</returns>
         public static string GetAppVersion()
         {
-            var ver = Windows.ApplicationModel.Package.Current.Id.Version;
+            var ver = Package.Current.Id.Version;
             return $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}";
         }
 
@@ -184,19 +214,19 @@ namespace Edi.UWP.Helpers
         /// Get Current App Logo Image Uri
         /// </summary>
         /// <returns>Uri</returns>
-        public static Uri GetAppLogoUri() => Windows.ApplicationModel.Package.Current.Logo;
+        public static Uri GetAppLogoUri() => Package.Current.Logo;
 
         /// <summary>
         /// Get Current App Display Name
         /// </summary>
         /// <returns>App Display Name</returns>
-        public static string GetAppDisplayName() => Windows.ApplicationModel.Package.Current.DisplayName;
+        public static string GetAppDisplayName() => Package.Current.DisplayName;
 
         /// <summary>
         /// Get Current App Publisher Name
         /// </summary>
         /// <returns>App Publisher Name</returns>
-        public static string GetAppPublisher() => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
+        public static string GetAppPublisher() => Package.Current.PublisherDisplayName;
 
         public static string Architecture
         {
