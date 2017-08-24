@@ -50,8 +50,11 @@ namespace Edi.UWP.Helpers
 
         public static string GetResource(string key, ResourceContext ctx = null)
         {
-            return
-                ResourceManager.Current.MainResourceMap.GetValue(key, ctx).ValueAsString;
+            if (null == ctx)
+            {
+                ctx = ResourceContext.GetForCurrentView(); 
+            }
+            return ResourceManager.Current.MainResourceMap.GetValue(key, ctx).ValueAsString;
         }
 
         /// <summary>
