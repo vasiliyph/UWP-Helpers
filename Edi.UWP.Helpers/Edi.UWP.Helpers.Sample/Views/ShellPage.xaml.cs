@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Edi.UWP.Helpers.Sample.Services;
 using Edi.UWP.Helpers.Sample.ViewModels;
 
