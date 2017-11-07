@@ -23,8 +23,6 @@
         <Grid 
             Grid.Row="1">
             <StackPanel>
-                <TextBlock Text="BooleanToVisibilityConverter" FontWeight="Bold" />
-                <Border x:Name="CvtBoolVisTarget" Height="50" Width="100" Background="{StaticResource SystemControlBackgroundAccentBrush}" Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
                 <Button x:Name="BtnShowHideBoolVisTarget" Content="Toggle Bool" Command="{Binding CommandToggleBool}" />
                 <Border Height="1" Background="#CECECE" HorizontalAlignment="Stretch" Margin="0,10,0,10" />
                 <TextBlock Text="ColorHexStringToBrushConverter" FontWeight="Bold" />

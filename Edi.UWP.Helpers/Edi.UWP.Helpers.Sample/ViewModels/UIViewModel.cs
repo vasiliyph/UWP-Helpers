@@ -15,8 +15,6 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
             CommandGetAccentColor = new RelayCommand(GetAccentColor);
             CommandGetScreenHeight = new RelayCommand(GetScreenHeight);
             CommandGetScreenWidth = new RelayCommand(GetScreenWidth);
-            CommandHideWindowsMobileStatusBar = new RelayCommand(async () => await HideWindowsMobileStatusBar());
-            CommandShowWindowsMobileStatusBar = new RelayCommand(async () => await ShowWindowsMobileStatusBar());
         }
 
         public SolidColorBrush AccentColor
@@ -47,16 +45,6 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
                 _hwText = value;
                 RaisePropertyChanged();
             }
-        }
-
-        private async Task ShowWindowsMobileStatusBar()
-        {
-            await UI.ShowWindowsMobileStatusBar();
-        }
-
-        private async Task HideWindowsMobileStatusBar()
-        {
-            await UI.HideWindowsMobileStatusBar();
         }
 
         private void GetScreenWidth()

@@ -9,7 +9,6 @@
     <Application.Resources>
         <ResourceDictionary>
             <vms:ViewModelLocator x:Key="Locator" />
-            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <converters:ColorHexStringToBrushConverter x:Key="ColorHexStringToBrushConverter"/>
             <converters:StringFormatConverter x:Key="StringFormatConverter"/>
             <ResourceDictionary.MergedDictionaries>

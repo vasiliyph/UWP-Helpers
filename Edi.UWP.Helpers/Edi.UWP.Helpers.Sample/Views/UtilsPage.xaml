@@ -35,13 +35,6 @@
 
                     <Border Height="1" Background="#EEE" Margin="0,15" />
 
-                    <TextBlock Text="Make Phone Call (Require Windows 10 Mobile)" TextWrapping="Wrap" />
-                    <TextBox Header="Display Name" Text="{Binding DisplayName, Mode=TwoWay}" />
-                    <TextBox Header="Phone Number" Text="{Binding PhoneNumber, Mode=TwoWay}" />
-                    <Button Content="Call" Command="{Binding CommandCall}" />
-
-                    <Border Height="1" Background="#EEE" Margin="0,15" />
-
                     <TextBlock Text="Get Xml String" />
                     <Button Content="Read Assets\test.xml" Margin="0,5,0,0" Command="{Binding CommandReadXml}" />
                     <TextBlock TextWrapping="Wrap" Text="{Binding XmlResult}" />

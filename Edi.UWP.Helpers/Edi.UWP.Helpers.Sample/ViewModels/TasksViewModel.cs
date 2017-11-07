@@ -22,7 +22,6 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
             CommandShowEmailCompose = new RelayCommand(async () => await ShowEmailCompse());
             CommandOpenWebsite = new RelayCommand(async () => await Tasks.OpenWebsiteAsync("http://edi.wang"));
             CommandReview = new RelayCommand(async () => await Tasks.OpenStoreReviewAsync());
-            CommandCall = new RelayCommand(() => Utils.MakePhoneCall(PhoneNumber, DisplayName));
         }
 
         public string EmailTo

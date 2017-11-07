@@ -60,15 +60,9 @@ namespace Edi.UWP.Helpers.Sample.Services
                         accentColor, Colors.White,
                         Colors.LightGray, Colors.Gray);
 
-
-                    Edi.UWP.Helpers.Mobile.SetWindowsMobileStatusBarColor(accentColor, Colors.White);
-
                     // Create a Frame to act as the navigation context and navigate to the first page
                     Window.Current.Content = _shell;
-                    NavigationService.Frame.NavigationFailed += (sender, e) =>
-                    {
-                        throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
-                    };
+                    NavigationService.Frame.NavigationFailed += (sender, e) => throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
                     NavigationService.Frame.Navigated += OnFrameNavigated;
                     if (SystemNavigationManager.GetForCurrentView() != null)
                     {
