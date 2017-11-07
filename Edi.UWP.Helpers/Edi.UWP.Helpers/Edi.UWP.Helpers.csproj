@@ -130,7 +130,6 @@
     <Compile Include="Converters\StringFormatConverters.cs" />
     <Compile Include="ExceptionHandlingSynchronizationContext.cs" />
     <Compile Include="Extensions\ColorExtenstions.cs" />
-    <Compile Include="Mobile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JsonDataRepository.cs" />
     <Compile Include="Response.cs" />
@@ -140,11 +139,6 @@
     <Compile Include="UI.cs" />
     <Compile Include="Utils.cs" />
     <Content Include="Properties\Edi.UWP.Helpers.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="WindowsMobile, Version=10.0.15063.0">
-      <Name>Windows Mobile Extensions for the UWP</Name>
-    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

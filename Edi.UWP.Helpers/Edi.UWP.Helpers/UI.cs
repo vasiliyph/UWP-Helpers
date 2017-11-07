@@ -202,29 +202,5 @@ namespace Edi.UWP.Helpers
             ToastNotification toast = new ToastNotification(toastXml);
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
-
-        /// <summary>
-        /// Apply a background color to Phone's system status bar
-        /// </summary>
-        /// <param name="backgroundColor">Background Color</param>
-        /// <param name="foregroundColor">Foreground Color</param>
-        public static void SetWindowsMobileStatusBarColor(Color? backgroundColor, Color? foregroundColor)
-        {
-            Mobile.SetWindowsMobileStatusBarColor(backgroundColor, foregroundColor);
-        }
-
-        /// <summary>
-        /// Hide System Status Bar on Phone, make App full screen
-        /// </summary>
-        /// <returns>Task</returns>
-        public static async Task HideWindowsMobileStatusBar()
-        {
-            await Mobile.HideWindowsMobileStatusBar();
-        }
-
-        public static async Task ShowWindowsMobileStatusBar()
-        {
-            await Mobile.ShowWindowsMobileStatusBar();
-        }
     }
 }

@@ -69,16 +69,6 @@ namespace Edi.UWP.Helpers
         }
 
         /// <summary>
-        /// Show Phone Call UI
-        /// </summary>
-        /// <param name="phoneNumber">Phone Number</param>
-        /// <param name="displayName">Contact Display Name</param>
-        public static void MakePhoneCall(string phoneNumber, string displayName)
-        {
-            Windows.ApplicationModel.Calls.PhoneCallManager.ShowPhoneCallUI(phoneNumber, displayName);
-        }
-
-        /// <summary>
         /// Save InkCanvas strokes to .ink File
         /// </summary>
         /// <param name="inkCanvas">InkCanvas Object</param>
