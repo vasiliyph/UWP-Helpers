@@ -2,19 +2,15 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-
 using Edi.UWP.Helpers.Sample.Helpers;
 using Edi.UWP.Helpers.Sample.Services;
-using Edi.UWP.Helpers.Sample.Views;
-
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-
-using Microsoft.Practices.ServiceLocation;
 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using CommonServiceLocator;
 
 namespace Edi.UWP.Helpers.Sample.ViewModels
 {
@@ -26,7 +22,7 @@ namespace Edi.UWP.Helpers.Sample.ViewModels
         private const double WideStateMinWindowWidth = 640;
         private const double PanoramicStateMinWindowWidth = 1024;
 
-        public NavigationServiceEx NavigationService => Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
+        public NavigationServiceEx NavigationService => ServiceLocator.Current.GetInstance<NavigationServiceEx>();
 
         private bool _isPaneOpen;
         public bool IsPaneOpen

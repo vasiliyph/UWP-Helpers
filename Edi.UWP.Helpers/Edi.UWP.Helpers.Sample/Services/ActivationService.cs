@@ -11,17 +11,17 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using CommonServiceLocator;
 
 namespace Edi.UWP.Helpers.Sample.Services
 {
-    //For more information on application activation see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/activation.md
     internal class ActivationService
     {
         private readonly App _app;
         private readonly UIElement _shell;
         private readonly Type _defaultNavItem;
     
-        private NavigationServiceEx NavigationService => Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<NavigationServiceEx>();
+        private NavigationServiceEx NavigationService => ServiceLocator.Current.GetInstance<NavigationServiceEx>();
 
 
         public ActivationService(App app, Type defaultNavItem, UIElement shell = null)

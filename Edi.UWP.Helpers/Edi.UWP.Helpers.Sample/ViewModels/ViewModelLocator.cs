@@ -1,9 +1,8 @@
+using CommonServiceLocator;
 using Edi.UWP.Helpers.Sample.Services;
 using Edi.UWP.Helpers.Sample.Views;
 
 using GalaSoft.MvvmLight.Ioc;
-
-using Microsoft.Practices.ServiceLocation;
 
 namespace Edi.UWP.Helpers.Sample.ViewModels
 {
