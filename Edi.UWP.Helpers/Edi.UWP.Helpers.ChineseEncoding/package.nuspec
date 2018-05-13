@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Edi.UWP.Helpers.ChineseEncoding</id>
-    <version>2017.11.0</version>
+    <version>2018.1.0</version>
     <title>Edi.UWP.Helpers.ChineseEncoding</title>
     <authors>Edi Wang, Aimeast</authors>
     <owners>Edi Wang</owners>
@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>ChineseEncoding for UWP</description>
     <releaseNotes> </releaseNotes>
-    <copyright>(c) 2017 edi.wang, Aimeast</copyright>
+    <copyright>(c) 2018 edi.wang, Aimeast</copyright>
     <tags>Chinese,Encoding,GB2312</tags>
     <dependencies>
     </dependencies>

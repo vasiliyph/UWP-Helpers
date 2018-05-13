@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("edi.wang")]
 [assembly: AssemblyProduct("Edi.UWP.Helpers.ChineseEncoding")]
-[assembly: AssemblyCopyright("© 2017 edi.wang, Aimeast")]
+[assembly: AssemblyCopyright("© 2018 edi.wang, Aimeast")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -24,6 +24,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2017.11.0.0")]
-[assembly: AssemblyFileVersion("2017.11.0.0")]
+[assembly: AssemblyVersion("2018.1.0.0")]
+[assembly: AssemblyFileVersion("2018.1.0.0")]
 [assembly: ComVisible(false)]
