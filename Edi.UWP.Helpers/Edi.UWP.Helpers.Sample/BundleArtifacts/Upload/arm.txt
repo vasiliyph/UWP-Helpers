@@ -1,6 +1,6 @@
-MainPackage=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.9.1.0_ARM.appx
-SymbolPackage=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2017.9.1.0\Edi.UWP.Helpers.Sample_2017.9.1.0_ARM.appxsym
-ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Edi.UWP.Helpers.Sample_2017.9.1.0_scale-100.appx
-ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Edi.UWP.Helpers.Sample_2017.9.1.0_scale-125.appx
-ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Edi.UWP.Helpers.Sample_2017.9.1.0_scale-150.appx
-ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Edi.UWP.Helpers.Sample_2017.9.1.0_scale-400.appx
+MainPackage=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0_ARM.appx
+SymbolPackage=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0\Edi.UWP.Helpers.Sample_2018.1.0.0_ARM.appxsym
+ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0_scale-100.appx
+ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0_scale-125.appx
+ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0_scale-150.appx
+ResourcePack=C:\GitHub\UWP-Helpers\Edi.UWP.Helpers\Edi.UWP.Helpers.Sample\bin\ARM\Release\Upload\Edi.UWP.Helpers.Sample_2018.1.0.0_scale-400.appx
