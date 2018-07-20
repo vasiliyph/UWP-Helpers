@@ -11,6 +11,14 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Edi.UWP.Helpers.Extensions
 {
+    public enum ImageFormat
+    {
+        Bmp,
+        Gif,
+        Png,
+        Jpg
+    }
+
     public static class BitmapExtensions
     {
         /// <summary>
@@ -53,31 +61,67 @@ namespace Edi.UWP.Helpers.Extensions
         /// <param name="bitmap">bitmap</param>
         /// <param name="location">path</param>
         /// <param name="fileName">file name</param>
+        /// <param name="format">Image Format (PNG as default)</param>
         /// <returns>FileUpdateStatus</returns>
-        public static async Task<FileUpdateStatus> SaveToPngImage(this WriteableBitmap bitmap, PickerLocationId location, string fileName)
+        public static async Task<FileUpdateStatus> SaveToPngImage(this WriteableBitmap bitmap, PickerLocationId location, string fileName, ImageFormat format = ImageFormat.Png)
         {
             var savePicker = new FileSavePicker
             {
                 SuggestedStartLocation = location
             };
-            savePicker.FileTypeChoices.Add("Png Image", new[] { ".png" });
+            savePicker.FileTypeChoices.Add($"{format} Image", new[] { $".{format.ToString().ToLower()}" });
             savePicker.SuggestedFileName = fileName;
             StorageFile sFile = await savePicker.PickSaveFileAsync();
-            return await WriteToStorageFile(bitmap, sFile);
+
+            Guid encoderId = Guid.Empty;
+            switch (format)
+            {
+                case ImageFormat.Bmp:
+                    encoderId = BitmapEncoder.BmpEncoderId;
+                    break;
+                case ImageFormat.Gif:
+                    encoderId = BitmapEncoder.GifEncoderId;
+                    break;
+                case ImageFormat.Jpg:
+                    encoderId = BitmapEncoder.JpegEncoderId;
+                    break;
+                case ImageFormat.Png:
+                    encoderId = BitmapEncoder.PngEncoderId;
+                    break;
+            }
+
+            return await bitmap.WriteToStorageFile(encoderId, sFile);
         }
 
         /// <summary>
         /// Save a bitmap to a StorageFile object
         /// </summary>
         /// <param name="bitmap">bitmap</param>
+        /// <param name="format">Image Format</param>
         /// <param name="file">StorageFile object</param>
         /// <returns>FileUpdateStatus</returns>
-        public static async Task<FileUpdateStatus> SaveStorageFile(this WriteableBitmap bitmap, StorageFile file)
+        public static async Task<FileUpdateStatus> SaveStorageFile(this WriteableBitmap bitmap, ImageFormat format, StorageFile file)
         {
-            return await WriteToStorageFile(bitmap, file);
+            Guid encoderId = Guid.Empty;
+            switch (format)
+            {
+                case ImageFormat.Bmp:
+                    encoderId = BitmapEncoder.BmpEncoderId;
+                    break;
+                case ImageFormat.Gif:
+                    encoderId = BitmapEncoder.GifEncoderId;
+                    break;
+                case ImageFormat.Jpg:
+                    encoderId = BitmapEncoder.JpegEncoderId;
+                    break;
+                case ImageFormat.Png:
+                    encoderId = BitmapEncoder.PngEncoderId;
+                    break;
+            }
+            return await bitmap.WriteToStorageFile(encoderId, file);
         }
 
-        private static async Task<FileUpdateStatus> WriteToStorageFile(WriteableBitmap bitmap, StorageFile file)
+        public static async Task<FileUpdateStatus> WriteToStorageFile(this SoftwareBitmap bitmap, Guid encoderId, StorageFile file)
         {
             StorageFile sFile = file;
             if (sFile != null)
@@ -86,7 +130,27 @@ namespace Edi.UWP.Helpers.Extensions
 
                 using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
                 {
-                    BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
+                    BitmapEncoder encoder = await BitmapEncoder.CreateAsync(encoderId, fileStream);
+                    encoder.SetSoftwareBitmap(bitmap);
+                    await encoder.FlushAsync();
+                }
+
+                FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(sFile);
+                return status;
+            }
+            return FileUpdateStatus.Failed;
+        }
+
+        public static async Task<FileUpdateStatus> WriteToStorageFile(this WriteableBitmap bitmap, Guid encoderId, StorageFile file)
+        {
+            StorageFile sFile = file;
+            if (sFile != null)
+            {
+                CachedFileManager.DeferUpdates(sFile);
+
+                using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    BitmapEncoder encoder = await BitmapEncoder.CreateAsync(encoderId, fileStream);
                     Stream pixelStream = bitmap.PixelBuffer.AsStream();
                     byte[] pixels = new byte[pixelStream.Length];
                     await pixelStream.ReadAsync(pixels, 0, pixels.Length);

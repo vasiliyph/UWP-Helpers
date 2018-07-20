@@ -9,11 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edi.UWP.Helpers.Sample", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edi.UWP.Helpers.ChineseEncoding", "Edi.UWP.Helpers.ChineseEncoding\Edi.UWP.Helpers.ChineseEncoding.csproj", "{6C97F44E-F9BF-4F14-8023-7B8915A2DF48}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NuGet-Gen-Tool", ".NuGet-Gen-Tool", "{ABB2B683-7951-4C70-B491-6A72E722D1A9}"
-	ProjectSection(SolutionItems) = preProject
-		Tools\nuget.exe = Tools\nuget.exe
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
